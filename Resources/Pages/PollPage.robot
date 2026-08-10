@@ -35,5 +35,4 @@ Create New Poll
 
     Wait Until Element Is Visible    ${POLL_SUCCESS_MESSAGE}    ${TIMEOUT}
 
-
-    # hi 
+ 
