@@ -13,6 +13,10 @@ Resource    ../Resources/Pages/ArticlePage.robot
 Resource    ../Resources/Pages/SurveyPage.robot
 Resource    ../Resources/Pages/ClubPage.robot
 Resource    ../Resources/Pages/EventPage.robot
+Resource    ../Resources/Keywords/ProfileKeywords.robot
+Resource    ../Resources/Pages/ProfilePage.robot
+Resource    ../Resources/Variables/Locators.robot
+Resource    ../Resources/Variables/TestData.robot
 
 Test Setup       Open Application
 Test Teardown    Close Application
@@ -94,3 +98,11 @@ Create Public And Private Event Successfully
     Sleep    2s
 
     Create New Event    ${EVENT_TYPE_PRIVATE}    ${EVENT_TITLE_PRIVATE}    ${TRUE}
+
+Update Profile Successfully
+    [Documentation]    Verifies a user can update profile image, banner, and additional profile information
+    [Tags]    profile    content
+    Login To Application    email=${PROFILE_UPDATE_LOGIN_EMAIL}
+    Click User Profile Icon
+    Update Profile Image Banner And Summary Details
+    Capture Page Screenshot    ${OUTPUT DIR}/UpdateProfile.png
