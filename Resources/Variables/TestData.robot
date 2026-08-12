@@ -82,3 +82,48 @@ ${EVENT_IMAGE}                       C:\\LinkCXO_RobotFramework\\Images\\post-im
 ${EVENT_START_TIME_VALUE}            09:00
 ${EVENT_END_TIME_VALUE}              11:00
 ${EVENT_REGISTRATION_LINK_VALUE}     https://in.bookmyshow.com/explore/events-mumbai
+
+
+
+# ============================================================
+# PROFILE UPDATE TEST DATA
+# ============================================================
+
+# Login
+${PROFILE_UPDATE_LOGIN_EMAIL}          ${EMAIL}
+
+
+# ------------------------------------------------------------
+# Profile Image
+# ------------------------------------------------------------
+
+${PROFILE_PHOTO_PATH}                  ${EXECDIR}${/}Images${/}profile_image.png
+
+
+# ------------------------------------------------------------
+# Profile Banner
+# ------------------------------------------------------------
+
+${PROFILE_BANNER_PATH}                 ${EXECDIR}${/}Images${/}banner_image.jpg
+
+
+# ------------------------------------------------------------
+# Additional Information
+# ------------------------------------------------------------
+
+${PROFILE_UPDATE_PREFERRED_LOCATION}   Mumbai
+${PROFILE_UPDATE_LAST_SALARY}          50 Lakhs
+
+
+# ------------------------------------------------------------
+# Resume
+# ------------------------------------------------------------
+
+${PROFILE_UPDATE_RESUME}               ${EXECDIR}${/}Images${/}prabhat_resume.pdf
+
+
+# ------------------------------------------------------------
+# Preferred Industry
+# ------------------------------------------------------------
+
+${PROFILE_UPDATE_PREFERRED_INDUSTRY}   IT and ITES

@@ -8,11 +8,12 @@ Resource    ../Variables/Locators.robot
 *** Keywords ***
 
 Login To Application
+    [Arguments]    ${email}=${EMAIL}
     Wait Until Element Is Visible    ${LOGIN_BUTTON}    ${TIMEOUT}
     Click Element    ${LOGIN_BUTTON}
 
     Wait Until Element Is Visible    ${EMAIL_INPUT}    ${TIMEOUT}
-    Input Text    ${EMAIL_INPUT}    ${EMAIL}
+    Input Text    ${EMAIL_INPUT}    ${email}
 
     Wait Until Element Is Enabled    ${CONTINUE_BUTTON}    ${TIMEOUT}
     Click Element    ${CONTINUE_BUTTON}
@@ -25,7 +26,7 @@ Login To Application
     Input Text    ${OTP_INPUT_4}    4
     Input Text    ${OTP_INPUT_5}    4
     Input Text    ${OTP_INPUT_6}    4
-
+    Sleep    2s
     Execute JavaScript
     ...    document.evaluate("${VERIFY_BUTTON_XPATH}", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click();
 

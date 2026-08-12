@@ -1,10 +1,8 @@
 *** Settings ***
-Library    SeleniumLibrary
-
+Library     SeleniumLibrary
 Resource    ../Variables/Config.robot
 
 *** Keywords ***
-
 Open Application
     Open Browser    ${URL}    ${BROWSER}
     Maximize Browser Window

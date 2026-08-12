@@ -1,146 +1,220 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.4.2 (Python 3.13.5 on win32)" generated="2026-08-08T10:10:22.898783" rpa="false" schemaversion="5">
-<suite id="s1" name="CreatePost" source="C:\LinkCXO_RobotFramework\Tests\CreatePost.robot">
-<kw name="Open Browser To Login Page" type="SETUP">
+<robot generator="Robot 7.4.2 (Python 3.13.5 on win32)" generated="2026-08-11T21:29:51.092984" rpa="false" schemaversion="5">
+<suite id="s1" name="UpdateProfile" source="C:\LinkCXO_RobotFramework\Tests\UpdateProfile.robot">
+<kw name="Open Browser And Maximize" type="SETUP">
 <kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-08-11T21:29:51.385125" level="INFO">Opening browser 'Chrome' to base url 'https://dev.cxostory.in/'.</msg>
 <arg>${URL}</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="NOT RUN" start="2026-08-08T10:10:23.185864" elapsed="0.000112"/>
+<status status="PASS" start="2026-08-11T21:29:51.384856" elapsed="3.587362"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="NOT RUN" start="2026-08-08T10:10:23.186125" elapsed="0.000034"/>
+<status status="PASS" start="2026-08-11T21:29:54.972672" elapsed="0.087228"/>
 </kw>
-<kw name="Set Selenium Speed" owner="SeleniumLibrary">
-<arg>${DELAY}</arg>
-<doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="NOT RUN" start="2026-08-08T10:10:23.186234" elapsed="0.000056"/>
+<status status="PASS" start="2026-08-11T21:29:51.383901" elapsed="3.677589"/>
 </kw>
-<status status="PASS" start="2026-08-08T10:10:23.184882" elapsed="0.001460"/>
-</kw>
-<test id="s1-t1" name="Create Post After Login" line="19">
+<test id="s1-t1" name="Update Profile Image Banner And Additional Info For New User" line="25">
 <kw name="Login To Application" owner="LoginPage">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${LOGIN_BUTTON}</arg>
 <arg>${TIMEOUT}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2026-08-08T10:10:23.187415" elapsed="0.000057"/>
+<status status="PASS" start="2026-08-11T21:29:55.066456" elapsed="0.027467"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-08-11T21:29:55.094318" level="INFO">Clicking element 'xpath=//button[normalize-space()='Login']'.</msg>
 <arg>${LOGIN_BUTTON}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2026-08-08T10:10:23.187558" elapsed="0.000061"/>
+<status status="PASS" start="2026-08-11T21:29:55.094095" elapsed="0.137513"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${EMAIL_INPUT}</arg>
 <arg>${TIMEOUT}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2026-08-08T10:10:23.187688" elapsed="0.000038"/>
+<status status="PASS" start="2026-08-11T21:29:55.232081" elapsed="0.021021"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-08-11T21:29:55.253934" level="INFO">Typing text 'kprabhat18@gmail.com' into text field 'xpath=//input[@id='emailId']'.</msg>
 <arg>${EMAIL_INPUT}</arg>
-<arg>${EMAIL}</arg>
+<arg>${email}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2026-08-08T10:10:23.187790" elapsed="0.000038"/>
+<status status="PASS" start="2026-08-11T21:29:55.253414" elapsed="0.117331"/>
 </kw>
 <kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
 <arg>${CONTINUE_BUTTON}</arg>
 <arg>${TIMEOUT}</arg>
 <doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="NOT RUN" start="2026-08-08T10:10:23.187889" elapsed="0.000037"/>
+<status status="PASS" start="2026-08-11T21:29:55.371007" elapsed="0.019445"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-08-11T21:29:55.390844" level="INFO">Clicking element 'xpath=//button[contains(normalize-space(),'Continue')]'.</msg>
 <arg>${CONTINUE_BUTTON}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2026-08-08T10:10:23.187987" elapsed="0.000031"/>
+<status status="PASS" start="2026-08-11T21:29:55.390619" elapsed="0.080777"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${OTP_INPUT_1}</arg>
 <arg>${TIMEOUT}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2026-08-08T10:10:23.188076" elapsed="0.000036"/>
+<status status="PASS" start="2026-08-11T21:29:55.471646" elapsed="0.019432"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-08-11T21:29:55.491656" level="INFO">Typing text '4' into text field 'xpath=//input[@name='otp-input-0']'.</msg>
 <arg>${OTP_INPUT_1}</arg>
 <arg>4</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2026-08-08T10:10:23.188170" elapsed="0.000063"/>
+<status status="PASS" start="2026-08-11T21:29:55.491328" elapsed="0.069474"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-08-11T21:29:55.561312" level="INFO">Typing text '4' into text field 'xpath=//input[@name='otp-input-1']'.</msg>
 <arg>${OTP_INPUT_2}</arg>
 <arg>4</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2026-08-08T10:10:23.188299" elapsed="0.000055"/>
+<status status="PASS" start="2026-08-11T21:29:55.560995" elapsed="0.050749"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-08-11T21:29:55.612419" level="INFO">Typing text '4' into text field 'xpath=//input[@name='otp-input-2']'.</msg>
 <arg>${OTP_INPUT_3}</arg>
 <arg>4</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2026-08-08T10:10:23.188421" elapsed="0.000047"/>
+<status status="PASS" start="2026-08-11T21:29:55.612029" elapsed="0.053412"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-08-11T21:29:55.667960" level="INFO">Typing text '4' into text field 'xpath=//input[@name='otp-input-3']'.</msg>
 <arg>${OTP_INPUT_4}</arg>
 <arg>4</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2026-08-08T10:10:23.188531" elapsed="0.000065"/>
+<status status="PASS" start="2026-08-11T21:29:55.666678" elapsed="0.058037"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-08-11T21:29:55.725237" level="INFO">Typing text '4' into text field 'xpath=//input[@name='otp-input-4']'.</msg>
 <arg>${OTP_INPUT_5}</arg>
 <arg>4</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2026-08-08T10:10:23.188658" elapsed="0.000041"/>
+<status status="PASS" start="2026-08-11T21:29:55.724939" elapsed="0.050891"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-08-11T21:29:55.776401" level="INFO">Typing text '4' into text field 'xpath=//input[@name='otp-input-5']'.</msg>
 <arg>${OTP_INPUT_6}</arg>
 <arg>4</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2026-08-08T10:10:23.188756" elapsed="0.000040"/>
+<status status="PASS" start="2026-08-11T21:29:55.776055" elapsed="0.048512"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-08-11T21:29:57.825581" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-08-11T21:29:55.824750" elapsed="2.000938"/>
 </kw>
 <kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-11T21:29:57.826025" level="INFO">Executing JavaScript:
+document.evaluate("//button[contains(@class,'mb-8') and contains(normalize-space(),'Continue')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click();
+Without any arguments.</msg>
 <arg>document.evaluate("${VERIFY_BUTTON_XPATH}", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click();</arg>
 <doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="NOT RUN" start="2026-08-08T10:10:23.188859" elapsed="0.000036"/>
+<status status="PASS" start="2026-08-11T21:29:57.825843" elapsed="0.006325"/>
 </kw>
 <kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
 <arg>${HOME_PAGE}</arg>
 <arg>${TIMEOUT}</arg>
 <doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="NOT RUN" start="2026-08-08T10:10:23.188955" elapsed="0.000036"/>
+<status status="PASS" start="2026-08-11T21:29:57.832338" elapsed="0.005935"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
+<msg time="2026-08-11T21:30:17.839164" level="INFO">Slept 20 seconds.</msg>
 <arg>20s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="NOT RUN" start="2026-08-08T10:10:23.189055" elapsed="0.000174"/>
+<status status="PASS" start="2026-08-11T21:29:57.838429" elapsed="20.001007"/>
 </kw>
-<status status="PASS" start="2026-08-08T10:10:23.187216" elapsed="0.002053"/>
+<arg>email=${NEW_PROFILE_LOGIN_EMAIL}</arg>
+<status status="PASS" start="2026-08-11T21:29:55.065200" elapsed="22.774485"/>
 </kw>
-<kw name="Create New Post">
-<msg time="2026-08-08T10:10:23.189573" level="FAIL">Multiple keywords with name 'Create New Post' found. Give the full name of the keyword you want to use:
-    PostKeywords.Create New Post
-    PostPage.Create New Post</msg>
-<status status="FAIL" start="2026-08-08T10:10:23.189541" elapsed="0.000076">Multiple keywords with name 'Create New Post' found. Give the full name of the keyword you want to use:
-    PostKeywords.Create New Post
-    PostPage.Create New Post</status>
+<kw name="Update New User Profile Image Banner And Additional Info" owner="ProfileKeywords">
+<kw name="Upload Profile Image" owner="ProfilePage">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<msg time="2026-08-11T21:30:48.126798" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-08-11T21:30:48.127114" level="FAIL">Element 'xpath=//input[@type='file' and @name='profilePicture']' did not appear in 30 seconds.</msg>
+<arg>${PROFILE_IMAGE_INPUT}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="FAIL" start="2026-08-11T21:30:17.842672" elapsed="30.290719">Element 'xpath=//input[@type='file' and @name='profilePicture']' did not appear in 30 seconds.</status>
 </kw>
-<status status="FAIL" start="2026-08-08T10:10:23.186395" elapsed="0.003394">Multiple keywords with name 'Create New Post' found. Give the full name of the keyword you want to use:
-    PostKeywords.Create New Post
-    PostPage.Create New Post</status>
+<kw name="Choose File" owner="SeleniumLibrary">
+<arg>${PROFILE_IMAGE_INPUT}</arg>
+<arg>${file_path}</arg>
+<doc>Inputs the ``file_path`` into the file input field ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-11T21:30:48.133861" elapsed="0.000081"/>
+</kw>
+<arg>${PROFILE_PHOTO_PATH}</arg>
+<status status="FAIL" start="2026-08-11T21:30:17.841803" elapsed="30.292771">Element 'xpath=//input[@type='file' and @name='profilePicture']' did not appear in 30 seconds.</status>
+</kw>
+<kw name="Update Profile Banner Image" owner="ProfilePage">
+<arg>${PROFILE_BANNER_PATH}</arg>
+<status status="NOT RUN" start="2026-08-11T21:30:48.135029" elapsed="0.000078"/>
+</kw>
+<kw name="Open Additional Information Modal" owner="ProfilePage">
+<status status="NOT RUN" start="2026-08-11T21:30:48.135384" elapsed="0.000061"/>
+</kw>
+<kw name="Fill Additional Email If Blank" owner="ProfilePage">
+<arg>${PROFILE_UPDATE_LOGIN_EMAIL}</arg>
+<status status="NOT RUN" start="2026-08-11T21:30:48.135866" elapsed="0.000064"/>
+</kw>
+<kw name="Enter Preferred Location Value" owner="ProfilePage">
+<arg>${NEW_PROFILE_PREFERRED_LOCATION}</arg>
+<status status="NOT RUN" start="2026-08-11T21:30:48.136201" elapsed="0.000057"/>
+</kw>
+<kw name="Select Last Salary Range" owner="ProfilePage">
+<arg>${NEW_PROFILE_LAST_SALARY}</arg>
+<status status="NOT RUN" start="2026-08-11T21:30:48.136532" elapsed="0.000064"/>
+</kw>
+<kw name="Upload Resume Document" owner="ProfilePage">
+<arg>${POST_DOCUMENT}</arg>
+<status status="NOT RUN" start="2026-08-11T21:30:48.136842" elapsed="0.000055"/>
+</kw>
+<kw name="Select Preferred Industry Option" owner="ProfilePage">
+<arg>${NEW_PROFILE_PREFERRED_INDUSTRY}</arg>
+<status status="NOT RUN" start="2026-08-11T21:30:48.137149" elapsed="0.000053"/>
+</kw>
+<kw name="Select Open For Relocation Yes" owner="ProfilePage">
+<status status="NOT RUN" start="2026-08-11T21:30:48.137433" elapsed="0.000084"/>
+</kw>
+<kw name="Select Notice Period Yes" owner="ProfilePage">
+<status status="NOT RUN" start="2026-08-11T21:30:48.137759" elapsed="0.000052"/>
+</kw>
+<kw name="Click Additional Info Save Button" owner="ProfilePage">
+<status status="NOT RUN" start="2026-08-11T21:30:48.138024" elapsed="0.000053"/>
+</kw>
+<doc>Navigates to profile, updates image + banner, then
+fills Additional Information: email (only if blank), preferred
+location, last salary, resume, preferred industry, relocation,
+and notice period — then saves.</doc>
+<status status="FAIL" start="2026-08-11T21:30:17.840816" elapsed="30.297457">Element 'xpath=//input[@type='file' and @name='profilePicture']' did not appear in 30 seconds.</status>
+</kw>
+<doc>Logs in with a dedicated test email, then updates
+profile image, banner, and additional information.</doc>
+<tag>profile</tag>
+<tag>regression</tag>
+<status status="FAIL" start="2026-08-11T21:29:55.062330" elapsed="53.076742">Element 'xpath=//input[@type='file' and @name='profilePicture']' did not appear in 30 seconds.</status>
 </test>
 <kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="NOT RUN" start="2026-08-08T10:10:23.190305" elapsed="0.000040"/>
+<status status="PASS" start="2026-08-11T21:30:48.141236" elapsed="2.211133"/>
 </kw>
-<status status="FAIL" start="2026-08-08T10:10:22.900774" elapsed="0.289601"/>
+<doc>Test suite for User Profile updates.</doc>
+<status status="FAIL" start="2026-08-11T21:29:51.094357" elapsed="59.258093"/>
 </suite>
 <statistics>
 <total>
 <stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
+<stat pass="0" fail="1" skip="0">profile</stat>
+<stat pass="0" fail="1" skip="0">regression</stat>
 </tag>
 <suite>
-<stat name="CreatePost" id="s1" pass="0" fail="1" skip="0">CreatePost</stat>
+<stat name="UpdateProfile" id="s1" pass="0" fail="1" skip="0">UpdateProfile</stat>
 </suite>
 </statistics>
 <errors>
