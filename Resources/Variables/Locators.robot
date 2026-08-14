@@ -103,7 +103,7 @@ ${ARTICLE_UPLOAD_IMAGE}        xpath=(//input[@type='file'])[1]
 ${ARTICLE_TITLE}               xpath=//input[@placeholder='Enter article title']
 ${ARTICLE_CONTENT}             xpath=//div[contains(@class,'ql-editor')]
 ${ARTICLE_PUBLISH_BUTTON}      xpath=//button[normalize-space()='Publish']
-${ARTICLE_PUBLISH_BUTTON_XPATH}    //button[normalize-space()='Publish']
+${ARTICLE_PUBLISH_BUTTON_XPATH}    xpath=//button[normalize-space()='Publish']
 ${ARTICLE_SUCCESS_MESSAGE}     xpath=//*[contains(text(),'success') or contains(text(),'Article created')]
 
 
@@ -190,10 +190,6 @@ ${USER_PROFILE_ICON}        xpath=//img[contains(@class,'dark\:border-lxblack-10
 ${USER_PROFILE_LINK}        xpath=//a[@href='/tab/profile']
 
 
-# ============================================================
-# PROFILE PAGE - UPDATE PROFILE
-# ============================================================
-
 # ------------------------------------------------------------
 # Profile Image & Banner
 # ------------------------------------------------------------
@@ -209,13 +205,16 @@ ${PROFILE_BANNER_IMAGE_INPUT}       xpath=//input[@type='file' and @name='profil
 ${ADDITIONAL_INFO_EDIT_ICON}        xpath=//*[normalize-space()='Additional information']/following::button[1]
 
 ${ADDITIONAL_INFO_EMAIL_INPUT}      xpath=//label[normalize-space()='Email']/following::input[1]
+${ADDITIONAL_INFO_MODAL_TITLE}      xpath=//*[normalize-space()='Edit additional information']
+${ADDITIONAL_INFO_CLOSE_BTN}        xpath=//*[normalize-space()='Edit additional information']/following::button[1]
 
 
 # ------------------------------------------------------------
 # Preferred Location
 # ------------------------------------------------------------
 
-${PREFERRED_LOCATION_INPUT}    xpath=//input[@id='react-select-4-input']
+${PREFERRED_LOCATION_CONTAINER}    xpath=(//div[contains(@class,'css-79z28i')])[1]
+${PREFERRED_LOCATION_INPUT}        xpath=(//div[contains(@class,'css-79z28i')])[1]//input
 
 
 # ------------------------------------------------------------
@@ -236,27 +235,111 @@ ${RESUME_FILE_INPUT}    xpath=//input[@type='file' and contains(@accept,'.pdf')]
 # Preferred Industry
 # ------------------------------------------------------------
 
-${PREFERRED_INDUSTRY_FIELD}         xpath=//label[normalize-space()='Preferred Industry']/following::div[contains(@class,'react-select__control')][1]
-
-${PREFERRED_INDUSTRY_INPUT}         xpath=//input[contains(@id,'react-select-') and contains(@id,'-input')]
+${PREFERRED_INDUSTRY_INPUT}    xpath=//label[normalize-space()='Preferred industry']/following::input[1]
 
 
 # ------------------------------------------------------------
 # Open For Relocation - Yes
 # ------------------------------------------------------------
 
-${RELOCATION_YES_RADIO}             xpath=(//label[contains(normalize-space(),'open for relocation')]/following::input[@type='radio'])[1]
+${RELOCATION_YES_RADIO}       xpath=//input[@type='radio' and @name='relocation' and @value='Yes']/parent::label
 
 
 # ------------------------------------------------------------
 # Notice Period - Yes
 # ------------------------------------------------------------
 
-${NOTICE_PERIOD_YES_RADIO}          xpath=(//label[contains(normalize-space(),'Notice period')]/following::input[@type='radio'])[1]
+${NOTICE_PERIOD_YES_RADIO}    xpath=//input[@type='radio' and @name='onNoticePeriod' and @value='Yes']/parent::label
 
 
 # ------------------------------------------------------------
 # Additional Information Save
 # ------------------------------------------------------------
 
-${ADDITIONAL_INFO_SAVE_BTN}         xpath=(//button[normalize-space()='Save'])[1]
+${ADDITIONAL_INFO_SAVE_BTN}    xpath=(//button[@type='submit' and normalize-space()='Save'])[1]
+
+# ------------------------------------------------------------
+# About
+# ------------------------------------------------------------
+
+${ABOUT_EDIT_ICON}             xpath=(//*[normalize-space()='About'])[last()]/following::button[1]
+${ABOUT_DESCRIPTION_INPUT}     xpath=(//textarea)[last()]
+${ABOUT_SKILLS_INPUT}          xpath=//*[normalize-space()='Skills']/following::input[1]
+${ABOUT_INTERESTS_INPUT}       xpath=//*[normalize-space()='Interests']/following::input[1]
+${ABOUT_SAVE_BTN}              xpath=//button[@type='submit' and normalize-space()='Save Changes']
+${EDUCATION_TAB}               xpath=//button[normalize-space()='Education']
+${EXPERIENCE_TAB}              xpath=//button[normalize-space()='Experience']
+
+# ------------------------------------------------------------
+# Add Education Modal
+# ------------------------------------------------------------
+
+${EDUCATION_ADD_BTN}            xpath=//*[normalize-space()='Education']/following::button[@title='Add'][1]
+${ADD_EDUCATION_MODAL_TITLE}    xpath=//*[normalize-space()='Add Education']
+
+${EDU_DEGREE_INPUT}             xpath=(//input[@name='degree' and not(@type='hidden')])[last()]
+${EDU_INSTITUTION_INPUT}        xpath=(//input[@name='school' and not(@type='hidden')])[last()]
+${EDU_FIELD_OF_STUDY_INPUT}     xpath=(//input[@name='fieldStudy' and not(@type='hidden')])[last()]
+${EDU_LOCATION_INPUT}           xpath=(//input[@name='location' and not(@type='hidden')])[last()]
+
+${EDU_START_MONTH_DROPDOWN}     xpath=(//*[normalize-space()='Start Date']/following::*[self::select or self::button or @role='combobox'])[1]
+${EDU_START_YEAR_DROPDOWN}      xpath=(//*[normalize-space()='Start Date']/following::*[self::select or self::button or @role='combobox'])[2]
+${EDU_END_MONTH_DROPDOWN}       xpath=(//*[normalize-space()='End Date']/following::*[self::select or self::button or @role='combobox'])[1]
+${EDU_END_YEAR_DROPDOWN}        xpath=(//*[normalize-space()='End Date']/following::*[self::select or self::button or @role='combobox'])[2]
+
+${EDU_CURRENTLY_STUDYING_CHECKBOX}    xpath=//input[@id='currentlyStudying']
+
+${EDU_SAVE_BTN}                 xpath=//button[@type='submit' and normalize-space()='Add Education']
+
+# ------------------------------------------------------------
+# Add Experience Modal
+# ------------------------------------------------------------
+${EXPERIENCE_ADD_BTN}           xpath=(//*[normalize-space()='Experience'])[last()]/following::button[@title='Add'][1]
+${ADD_EXPERIENCE_MODAL_TITLE}   xpath=//*[normalize-space()='Add Experience']
+${EXP_JOB_TITLE_INPUT}          xpath=//input[@name='desgnation']
+${EXP_DESCRIPTION_INPUT}        xpath=//textarea[@placeholder='Description']
+${EXP_COMPANY_NAME_INPUT}       xpath=//input[@placeholder='e.g. Technocorp']
+${EXP_LOCATION_INPUT}           xpath=//input[@placeholder='e.g.San Francisco, CA']
+${EXP_START_MONTH_DROPDOWN}     xpath=//select[@name='startMonth']
+${EXP_START_YEAR_DROPDOWN}      xpath=//select[@name='startYear']
+${EXP_CURRENTLY_WORKING}        id=currentWorkingStatus
+${EXP_SAVE_BTN}                 xpath=//button[@type='submit' and normalize-space()='Add Experience']
+
+# ------------------------------------------------------------
+# Awards & Certification
+# ------------------------------------------------------------
+${AWARDS_CERTIFICATION_TAB}     xpath=//button[normalize-space()='Awards & Certification']
+${AWARDS_HEADING}               xpath=(//*[normalize-space()='Awards & Certification'])[last()]
+${ADD_AWARD_BTN}                xpath=(//*[normalize-space()='Awards & Certification'])[last()]/following::button[@title='Add'][1]
+${ADD_AWARD_MODAL_TITLE}        xpath=//*[normalize-space()='Add Awards & Certification']
+${AWARD_TITLE_INPUT}            xpath=//label[normalize-space()='Award / Certification Title']/following::input[1]
+${AWARD_CERTIFIED_BY_INPUT}     xpath=//label[normalize-space()='Issued By / Organization']/following::input[1]
+${AWARD_ISSUED_DATE_INPUT}      xpath=//label[normalize-space()='Issued Date']/following::input[1]
+${AWARD_DESCRIPTION_INPUT}      xpath=//label[normalize-space()='Description']/following::textarea[1]
+${AWARD_SAVE_BTN}               xpath=//button[@type='submit' and normalize-space()='Add Awards & Certification']
+
+# ------------------------------------------------------------
+# Publications
+# ------------------------------------------------------------
+${PUBLICATIONS_TAB}             xpath=//button[normalize-space()='Publications']
+${PUBLICATIONS_HEADING}         xpath=(//*[normalize-space()='Publications'])[last()]
+${ADD_PUBLICATION_BTN}          xpath=(//*[normalize-space()='Publications'])[last()]/following::button[@title='Add'][1]
+${PUBLICATION_TITLE_INPUT}      xpath=//label[normalize-space()='Publication Title']/following::input[1]
+${PUBLICATION_PUBLISHED_BY_INPUT}    xpath=//label[normalize-space()='Published By']/following::input[1]
+${PUBLICATION_PUBLISHED_ON_INPUT}    xpath=//label[normalize-space()='Publication Date']/following::input[1]
+${PUBLICATION_DESCRIPTION_INPUT}     xpath=//label[normalize-space()='Description']/following::textarea[1]
+${PUBLICATION_SAVE_BTN}         xpath=//button[@type='submit' and normalize-space()='Save Changes']
+
+# ------------------------------------------------------------
+# Languages
+# ------------------------------------------------------------
+${LANGUAGES_TAB}                xpath=//button[normalize-space()='Languages']
+${LANGUAGES_HEADING}            xpath=(//*[normalize-space()='Languages'])[last()]
+${EDIT_LANGUAGES_BTN}           xpath=(//*[normalize-space()='Languages'])[last()]/following::button[1]
+${LANGUAGE_DROPDOWN}            xpath=//label[normalize-space()='Language']/following::input[@role='combobox'][1]
+${LANGUAGE_ENGLISH_OPTION}      xpath=//*[@role='option' and normalize-space()='English']
+${LANGUAGE_READING}             xpath=(//label[normalize-space()='Reading'])[1]
+${LANGUAGE_WRITING}             xpath=(//label[normalize-space()='Writing'])[1]
+${LANGUAGE_SPEAKING}            xpath=(//label[normalize-space()='Speaking'])[1]
+${LANGUAGE_ADD_BTN}             xpath=(//button[normalize-space()='Add'])[1]
+${LANGUAGE_SAVE_BTN}            xpath=//button[normalize-space()='Add Language']

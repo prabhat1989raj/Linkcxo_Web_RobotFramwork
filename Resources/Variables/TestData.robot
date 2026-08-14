@@ -1,12 +1,17 @@
 *** Variables ***
 
-
 # ==========================================
 # Login Test Data
 # ==========================================
 
-${EMAIL}                         kprabhat956@gmail.com
+${EMAIL}                         linkcxo123@gmail.com
 ${OTP}                           444444
+
+# Signup test data
+${SIGNUP_EMAIL}                  linkcxo123@gmail.com
+${SIGNUP_EMAIL_MOBILE}           8484848485
+${SIGNUP_MOBILE}                 9999999999
+${SIGNUP_MOBILE_EMAIL}           kprabhat99999@gmail.com
 
 # ==========================================
 # Post Test Data
@@ -34,7 +39,6 @@ ${SURVEY_OPTION_3}               Neutral
 
 ${SURVEY_Q2_OPTION_1}            YES
 ${SURVEY_Q2_OPTION_2}            NO
-
 
 # ==========================================
 # Poll Test Data
@@ -83,8 +87,6 @@ ${EVENT_START_TIME_VALUE}            09:00
 ${EVENT_END_TIME_VALUE}              11:00
 ${EVENT_REGISTRATION_LINK_VALUE}     https://in.bookmyshow.com/explore/events-mumbai
 
-
-
 # ============================================================
 # PROFILE UPDATE TEST DATA
 # ============================================================
@@ -92,13 +94,11 @@ ${EVENT_REGISTRATION_LINK_VALUE}     https://in.bookmyshow.com/explore/events-mu
 # Login
 ${PROFILE_UPDATE_LOGIN_EMAIL}          ${EMAIL}
 
-
 # ------------------------------------------------------------
 # Profile Image
 # ------------------------------------------------------------
 
 ${PROFILE_PHOTO_PATH}                  ${EXECDIR}${/}Images${/}profile_image.png
-
 
 # ------------------------------------------------------------
 # Profile Banner
@@ -106,14 +106,12 @@ ${PROFILE_PHOTO_PATH}                  ${EXECDIR}${/}Images${/}profile_image.png
 
 ${PROFILE_BANNER_PATH}                 ${EXECDIR}${/}Images${/}banner_image.jpg
 
-
 # ------------------------------------------------------------
 # Additional Information
 # ------------------------------------------------------------
 
 ${PROFILE_UPDATE_PREFERRED_LOCATION}   Mumbai
-${PROFILE_UPDATE_LAST_SALARY}          50 Lakhs
-
+${PROFILE_UPDATE_LAST_SALARY}    50 Lacs
 
 # ------------------------------------------------------------
 # Resume
@@ -126,4 +124,44 @@ ${PROFILE_UPDATE_RESUME}               ${EXECDIR}${/}Images${/}prabhat_resume.pd
 # Preferred Industry
 # ------------------------------------------------------------
 
-${PROFILE_UPDATE_PREFERRED_INDUSTRY}   IT and ITES
+${PROFILE_UPDATE_PREFERRED_INDUSTRY}    IT & ITES
+${PROFILE_ABOUT_DESCRIPTION}            Maintaining relationships with clients, partners and other stakeholders. Managing the profits and losses of the organization or a specific division. Developing goals and initiatives to direct the company's course. Guiding managers on implementing company initiatives and policies.
+@{PROFILE_ABOUT_SKILLS}                 Python    Digital Marketing    Full-Stack Development
+@{PROFILE_ABOUT_INTERESTS}              CXO Networking    Industry Events
+
+${EDU_DEGREE}          B.Sc Computer Science
+${EDU_INSTITUTION}     Stanford University
+${EDU_FIELD_OF_STUDY}  Computer Science
+${EDU_LOCATION}        California, USA
+${EDU_START_MONTH}     Jan
+${EDU_START_YEAR}      2015
+${EDU_END_MONTH}       Jun
+${EDU_END_YEAR}        2019
+
+# ------------------------------------------------------------
+# Experience
+# ------------------------------------------------------------
+${EXP_JOB_TITLE}       Zonal Head
+${EXP_DESCRIPTION}     I am working as a zone head at Alfatech Private Limited
+${EXP_COMPANY_NAME}    Alfatech Private Limited
+${EXP_LOCATION}        Navi Mumbai
+${EXP_START_MONTH}     Mar
+${EXP_START_YEAR}      2018
+
+# ------------------------------------------------------------
+# Awards & Certification
+# ------------------------------------------------------------
+${AWARD_TITLE}         Best Product Manger
+${AWARD_CERTIFIED_BY}  Gyanesh Kumar
+${AWARD_ISSUED_DATE}   January 01 2018
+${AWARD_DESCRIPTION}   Award descriptions
+
+# ------------------------------------------------------------
+# Publications
+# ------------------------------------------------------------
+${PUBLICATION_TITLE}          Evolution 2.0
+${PUBLICATION_PUBLISHED_BY}   Gyanesh Kumar
+${PUBLICATION_PUBLISHED_ON}   01-01-2024
+${PUBLICATION_DESCRIPTION}    This is the descrition of publication
+
+

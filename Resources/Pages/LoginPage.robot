@@ -31,5 +31,4 @@ Login To Application
     ...    document.evaluate("${VERIFY_BUTTON_XPATH}", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click();
 
     Wait Until Page Contains Element    ${HOME_PAGE}    ${TIMEOUT}
-
-    Sleep    20s
+    Wait Until Element Is Visible    ${USER_PROFILE_LINK}    timeout=15s

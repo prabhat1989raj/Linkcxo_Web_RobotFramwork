@@ -1,5 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary
+Resource   ../Variables/TestData.robot
 
 *** Variables ***
 
@@ -39,7 +40,7 @@ Signup Using Mobile
     Click Element                    ${MOBILE_TOGGLE}
 
     Wait Until Element Is Visible    ${MOBILE_INPUT}    20s
-    Input Text                       ${MOBILE_INPUT}    8969218655
+    Input Text                       ${MOBILE_INPUT}    ${SIGNUP_MOBILE}
 
     Wait Until Element Is Visible    ${CONTINUE_BUTTON}    20s
     Click Element                    ${CONTINUE_BUTTON}
@@ -53,7 +54,7 @@ Signup Using Mobile
     Input Text                       ${LAST_NAME}    Kumar
 
     Wait Until Element Is Visible    ${TELL_US_EMAIL}    20s
-    Input Text                       ${TELL_US_EMAIL}    raj12389@gmail.com
+    Input Text                       ${TELL_US_EMAIL}    ${SIGNUP_MOBILE_EMAIL}
 
     Wait Until Element Is Visible    ${COMPANY_NAME}    20s
     Input Text                       ${COMPANY_NAME}    Alfatech Private Limited

@@ -24,11 +24,6 @@ Test Teardown    Close Application
 
 *** Test Cases ***
 
-Login With Email
-    [Documentation]    Verifies a user can log in using their registered email
-    [Tags]    login    smoke
-    Login To Application
-
 Signup With Email
     [Documentation]    Verifies a new user can sign up using email and OTP verification
     [Tags]    signup    email
@@ -38,6 +33,11 @@ Signup With Mobile
     [Documentation]    Verifies a new user can sign up using mobile number and OTP verification
     [Tags]    signup    mobile
     Signup Using Mobile
+
+Login With Email
+    [Documentation]    Verifies login with the email-signup user.
+    [Tags]    login    smoke
+    Login To Application    email=${SIGNUP_EMAIL}
 
 Create Post After Login
     [Documentation]    Verifies a logged-in user can create a text/image post
@@ -74,22 +74,24 @@ Create Survey Successfully
     Create New Survey
     Capture Page Screenshot    ${OUTPUT DIR}/CreateSurvey.png
 
-Create Public And Private Club Successfully
-    [Documentation]    Verifies a user can create both a Public and a Private club
-    [Tags]    club    content
-    Login To Application
-    Create New Club
-
-    Sleep    10s
-
-    Execute Javascript    document.evaluate("//button[normalize-space()='Create Club']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click();
-
-    Create New Club    ${CLUB_TYPE_PRIVATE}
+Update Profile Successfully
+    [Documentation]    Verifies a user can update all profile sections.
+    [Tags]    profile    content
+    Login To Application    email=${PROFILE_UPDATE_LOGIN_EMAIL}
+    Click User Profile Icon
+    Update Profile Image Banner And Summary Details
+    Update User About Description
+    Add User Education Details
+    Add User Experience Details
+    Add User Award And Certification
+    Add User Publication
+    Add User English Language
+    Capture Page Screenshot    ${OUTPUT DIR}/UpdateProfile.png
 
 Create Public And Private Event Successfully
     [Documentation]    Verifies a user can create both a Public and a Private event
     [Tags]    event    content
-    Login To Application
+    Login To Application    email=${SIGNUP_EMAIL}
     Create New Event    ${EVENT_TYPE_PUBLIC}    ${EVENT_TITLE_PUBLIC}
 
     Sleep    15s
@@ -99,10 +101,14 @@ Create Public And Private Event Successfully
 
     Create New Event    ${EVENT_TYPE_PRIVATE}    ${EVENT_TITLE_PRIVATE}    ${TRUE}
 
-Update Profile Successfully
-    [Documentation]    Verifies a user can update profile image, banner, and additional profile information
-    [Tags]    profile    content
-    Login To Application    email=${PROFILE_UPDATE_LOGIN_EMAIL}
-    Click User Profile Icon
-    Update Profile Image Banner And Summary Details
-    Capture Page Screenshot    ${OUTPUT DIR}/UpdateProfile.png
+Create Public And Private Club Successfully
+    [Documentation]    Verifies a user can create both a Public and a Private club
+    [Tags]    club    content
+    Login To Application    email=${SIGNUP_EMAIL}
+    Create New Club
+
+    Sleep    10s
+
+    Execute Javascript    document.evaluate("//button[normalize-space()='Create Club']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click();
+
+    Create New Club    ${CLUB_TYPE_PRIVATE}

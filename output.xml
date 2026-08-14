@@ -1,209 +1,1160 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.4.2 (Python 3.13.5 on win32)" generated="2026-08-11T21:29:51.092984" rpa="false" schemaversion="5">
+<robot generator="Robot 7.4.2 (Python 3.13.5 on win32)" generated="2026-08-14T18:33:49.325797" rpa="false" schemaversion="5">
 <suite id="s1" name="UpdateProfile" source="C:\LinkCXO_RobotFramework\Tests\UpdateProfile.robot">
-<kw name="Open Browser And Maximize" type="SETUP">
+<kw name="Open Application" owner="Browser" type="SETUP">
+<kw name="Evaluate" owner="BuiltIn">
+<var>${chrome_options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.621992" elapsed="0.000237"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<var>&amp;{location_rule}</var>
+<arg>setting</arg>
+<arg>1</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.622361" elapsed="0.000125"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<var>&amp;{location_exceptions}</var>
+<arg>https://dev.cxostory.in,*</arg>
+<arg>${location_rule}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.622572" elapsed="0.000104"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<var>&amp;{preferences}</var>
+<arg>profile.default_content_setting_values.geolocation</arg>
+<arg>1</arg>
+<arg>profile.content_settings.exceptions.geolocation</arg>
+<arg>${location_exceptions}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.622753" elapsed="0.000104"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_experimental_option</arg>
+<arg>prefs</arg>
+<arg>${preferences}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.622931" elapsed="0.000105"/>
+</kw>
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2026-08-11T21:29:51.385125" level="INFO">Opening browser 'Chrome' to base url 'https://dev.cxostory.in/'.</msg>
 <arg>${URL}</arg>
 <arg>${BROWSER}</arg>
+<arg>options=${chrome_options}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2026-08-11T21:29:51.384856" elapsed="3.587362"/>
+<status status="NOT RUN" start="2026-08-14T18:33:49.623125" elapsed="0.000072"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2026-08-11T21:29:54.972672" elapsed="0.087228"/>
+<status status="NOT RUN" start="2026-08-14T18:33:49.623266" elapsed="0.000026"/>
 </kw>
-<status status="PASS" start="2026-08-11T21:29:51.383901" elapsed="3.677589"/>
+<kw name="Set Selenium Timeout" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.623350" elapsed="0.000033"/>
 </kw>
-<test id="s1-t1" name="Update Profile Image Banner And Additional Info For New User" line="25">
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>${IMPLICIT_WAIT}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.623443" elapsed="0.000032"/>
+</kw>
+<status status="PASS" start="2026-08-14T18:33:49.621551" elapsed="0.001956"/>
+</kw>
+<test id="s1-t1" name="Update Profile Successfully" line="15">
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.623825" elapsed="0.000029"/>
+</kw>
 <kw name="Login To Application" owner="LoginPage">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${LOGIN_BUTTON}</arg>
 <arg>${TIMEOUT}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-08-11T21:29:55.066456" elapsed="0.027467"/>
+<status status="NOT RUN" start="2026-08-14T18:33:49.624158" elapsed="0.000047"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2026-08-11T21:29:55.094318" level="INFO">Clicking element 'xpath=//button[normalize-space()='Login']'.</msg>
 <arg>${LOGIN_BUTTON}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-08-11T21:29:55.094095" elapsed="0.137513"/>
+<status status="NOT RUN" start="2026-08-14T18:33:49.624274" elapsed="0.000034"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${EMAIL_INPUT}</arg>
 <arg>${TIMEOUT}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-08-11T21:29:55.232081" elapsed="0.021021"/>
+<status status="NOT RUN" start="2026-08-14T18:33:49.624370" elapsed="0.000037"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-08-11T21:29:55.253934" level="INFO">Typing text 'kprabhat18@gmail.com' into text field 'xpath=//input[@id='emailId']'.</msg>
 <arg>${EMAIL_INPUT}</arg>
 <arg>${email}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-08-11T21:29:55.253414" elapsed="0.117331"/>
+<status status="NOT RUN" start="2026-08-14T18:33:49.624467" elapsed="0.000035"/>
 </kw>
 <kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
 <arg>${CONTINUE_BUTTON}</arg>
 <arg>${TIMEOUT}</arg>
 <doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" start="2026-08-11T21:29:55.371007" elapsed="0.019445"/>
+<status status="NOT RUN" start="2026-08-14T18:33:49.624563" elapsed="0.000036"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2026-08-11T21:29:55.390844" level="INFO">Clicking element 'xpath=//button[contains(normalize-space(),'Continue')]'.</msg>
 <arg>${CONTINUE_BUTTON}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-08-11T21:29:55.390619" elapsed="0.080777"/>
+<status status="NOT RUN" start="2026-08-14T18:33:49.624657" elapsed="0.000032"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${OTP_INPUT_1}</arg>
 <arg>${TIMEOUT}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-08-11T21:29:55.471646" elapsed="0.019432"/>
+<status status="NOT RUN" start="2026-08-14T18:33:49.624745" elapsed="0.000037"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-08-11T21:29:55.491656" level="INFO">Typing text '4' into text field 'xpath=//input[@name='otp-input-0']'.</msg>
 <arg>${OTP_INPUT_1}</arg>
 <arg>4</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-08-11T21:29:55.491328" elapsed="0.069474"/>
+<status status="NOT RUN" start="2026-08-14T18:33:49.624839" elapsed="0.000051"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-08-11T21:29:55.561312" level="INFO">Typing text '4' into text field 'xpath=//input[@name='otp-input-1']'.</msg>
 <arg>${OTP_INPUT_2}</arg>
 <arg>4</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-08-11T21:29:55.560995" elapsed="0.050749"/>
+<status status="NOT RUN" start="2026-08-14T18:33:49.624954" elapsed="0.000043"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-08-11T21:29:55.612419" level="INFO">Typing text '4' into text field 'xpath=//input[@name='otp-input-2']'.</msg>
 <arg>${OTP_INPUT_3}</arg>
 <arg>4</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-08-11T21:29:55.612029" elapsed="0.053412"/>
+<status status="NOT RUN" start="2026-08-14T18:33:49.625058" elapsed="0.000041"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-08-11T21:29:55.667960" level="INFO">Typing text '4' into text field 'xpath=//input[@name='otp-input-3']'.</msg>
 <arg>${OTP_INPUT_4}</arg>
 <arg>4</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-08-11T21:29:55.666678" elapsed="0.058037"/>
+<status status="NOT RUN" start="2026-08-14T18:33:49.625158" elapsed="0.000041"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-08-11T21:29:55.725237" level="INFO">Typing text '4' into text field 'xpath=//input[@name='otp-input-4']'.</msg>
 <arg>${OTP_INPUT_5}</arg>
 <arg>4</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-08-11T21:29:55.724939" elapsed="0.050891"/>
+<status status="NOT RUN" start="2026-08-14T18:33:49.625258" elapsed="0.000040"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-08-11T21:29:55.776401" level="INFO">Typing text '4' into text field 'xpath=//input[@name='otp-input-5']'.</msg>
 <arg>${OTP_INPUT_6}</arg>
 <arg>4</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-08-11T21:29:55.776055" elapsed="0.048512"/>
+<status status="NOT RUN" start="2026-08-14T18:33:49.625368" elapsed="0.000040"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2026-08-11T21:29:57.825581" level="INFO">Slept 2 seconds.</msg>
 <arg>2s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2026-08-11T21:29:55.824750" elapsed="2.000938"/>
+<status status="NOT RUN" start="2026-08-14T18:33:49.625467" elapsed="0.000139"/>
 </kw>
 <kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2026-08-11T21:29:57.826025" level="INFO">Executing JavaScript:
-document.evaluate("//button[contains(@class,'mb-8') and contains(normalize-space(),'Continue')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click();
-Without any arguments.</msg>
 <arg>document.evaluate("${VERIFY_BUTTON_XPATH}", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click();</arg>
 <doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="PASS" start="2026-08-11T21:29:57.825843" elapsed="0.006325"/>
+<status status="NOT RUN" start="2026-08-14T18:33:49.625679" elapsed="0.000039"/>
 </kw>
 <kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
 <arg>${HOME_PAGE}</arg>
 <arg>${TIMEOUT}</arg>
 <doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2026-08-11T21:29:57.832338" elapsed="0.005935"/>
+<status status="NOT RUN" start="2026-08-14T18:33:49.625782" elapsed="0.000039"/>
 </kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2026-08-11T21:30:17.839164" level="INFO">Slept 20 seconds.</msg>
-<arg>20s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2026-08-11T21:29:57.838429" elapsed="20.001007"/>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${USER_PROFILE_LINK}</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.625882" elapsed="0.000072"/>
 </kw>
-<arg>email=${NEW_PROFILE_LOGIN_EMAIL}</arg>
-<status status="PASS" start="2026-08-11T21:29:55.065200" elapsed="22.774485"/>
+<arg>email=${PROFILE_UPDATE_LOGIN_EMAIL}</arg>
+<status status="PASS" start="2026-08-14T18:33:49.623987" elapsed="0.002002"/>
 </kw>
-<kw name="Update New User Profile Image Banner And Additional Info" owner="ProfileKeywords">
+<kw name="Click User Profile Icon" owner="ProfilePage">
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.626198" elapsed="0.000025"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${USER_PROFILE_LINK}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.626400" elapsed="0.000083"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${USER_PROFILE_LINK}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.626551" elapsed="0.000033"/>
+</kw>
+<status status="PASS" start="2026-08-14T18:33:49.626078" elapsed="0.000536"/>
+</kw>
+<kw name="Update Profile Image Banner And Summary Details" owner="ProfileKeywords">
 <kw name="Upload Profile Image" owner="ProfilePage">
 <kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<msg time="2026-08-11T21:30:48.126798" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2026-08-11T21:30:48.127114" level="FAIL">Element 'xpath=//input[@type='file' and @name='profilePicture']' did not appear in 30 seconds.</msg>
 <arg>${PROFILE_IMAGE_INPUT}</arg>
 <arg>timeout=30s</arg>
 <doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="FAIL" start="2026-08-11T21:30:17.842672" elapsed="30.290719">Element 'xpath=//input[@type='file' and @name='profilePicture']' did not appear in 30 seconds.</status>
+<status status="NOT RUN" start="2026-08-14T18:33:49.626979" elapsed="0.000072"/>
 </kw>
 <kw name="Choose File" owner="SeleniumLibrary">
 <arg>${PROFILE_IMAGE_INPUT}</arg>
 <arg>${file_path}</arg>
 <doc>Inputs the ``file_path`` into the file input field ``locator``.</doc>
-<status status="NOT RUN" start="2026-08-11T21:30:48.133861" elapsed="0.000081"/>
+<status status="NOT RUN" start="2026-08-14T18:33:49.627119" elapsed="0.000040"/>
 </kw>
 <arg>${PROFILE_PHOTO_PATH}</arg>
-<status status="FAIL" start="2026-08-11T21:30:17.841803" elapsed="30.292771">Element 'xpath=//input[@type='file' and @name='profilePicture']' did not appear in 30 seconds.</status>
+<status status="PASS" start="2026-08-14T18:33:49.626861" elapsed="0.000329"/>
 </kw>
 <kw name="Update Profile Banner Image" owner="ProfilePage">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${PROFILE_BANNER_IMAGE_INPUT}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.627386" elapsed="0.000066"/>
+</kw>
+<kw name="Choose File" owner="SeleniumLibrary">
+<arg>${PROFILE_BANNER_IMAGE_INPUT}</arg>
+<arg>${file_path}</arg>
+<doc>Inputs the ``file_path`` into the file input field ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.627516" elapsed="0.000039"/>
+</kw>
 <arg>${PROFILE_BANNER_PATH}</arg>
-<status status="NOT RUN" start="2026-08-11T21:30:48.135029" elapsed="0.000078"/>
+<status status="PASS" start="2026-08-14T18:33:49.627276" elapsed="0.000310"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.627641" elapsed="0.000115"/>
 </kw>
 <kw name="Open Additional Information Modal" owner="ProfilePage">
-<status status="NOT RUN" start="2026-08-11T21:30:48.135384" elapsed="0.000061"/>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${ADDITIONAL_INFO_EDIT_ICON}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.627950" elapsed="0.000065"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${ADDITIONAL_INFO_EDIT_ICON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.628080" elapsed="0.000036"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${ADDITIONAL_INFO_EMAIL_INPUT}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.628184" elapsed="0.000064"/>
+</kw>
+<status status="PASS" start="2026-08-14T18:33:49.627844" elapsed="0.000435"/>
 </kw>
 <kw name="Fill Additional Email If Blank" owner="ProfilePage">
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${ADDITIONAL_INFO_EMAIL_INPUT}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.628476" elapsed="0.000037"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>${ADDITIONAL_INFO_EMAIL_INPUT}</arg>
+<arg>${email_value}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.628573" elapsed="0.000037"/>
+</kw>
 <arg>${PROFILE_UPDATE_LOGIN_EMAIL}</arg>
-<status status="NOT RUN" start="2026-08-11T21:30:48.135866" elapsed="0.000064"/>
+<status status="PASS" start="2026-08-14T18:33:49.628362" elapsed="0.000279"/>
 </kw>
 <kw name="Enter Preferred Location Value" owner="ProfilePage">
-<arg>${NEW_PROFILE_PREFERRED_LOCATION}</arg>
-<status status="NOT RUN" start="2026-08-11T21:30:48.136201" elapsed="0.000057"/>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${PREFERRED_LOCATION_CONTAINER}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.628833" elapsed="0.000069"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${PREFERRED_LOCATION_CONTAINER}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.628964" elapsed="0.000034"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${PREFERRED_LOCATION_INPUT}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.629055" elapsed="0.000059"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>${PREFERRED_LOCATION_INPUT}</arg>
+<arg>${location}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.629175" elapsed="0.000051"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//div[contains(@id,'-option') and normalize-space()='${location}']</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.629289" elapsed="0.000071"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>xpath=//div[contains(@id,'-option') and normalize-space()='${location}']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.629422" elapsed="0.000040"/>
+</kw>
+<arg>${PROFILE_UPDATE_PREFERRED_LOCATION}</arg>
+<status status="PASS" start="2026-08-14T18:33:49.628729" elapsed="0.000845"/>
 </kw>
 <kw name="Select Last Salary Range" owner="ProfilePage">
-<arg>${NEW_PROFILE_LAST_SALARY}</arg>
-<status status="NOT RUN" start="2026-08-11T21:30:48.136532" elapsed="0.000064"/>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LAST_SALARY_DROPDOWN}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.629893" elapsed="0.000083"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<arg>${LAST_SALARY_DROPDOWN}</arg>
+<arg>${salary_range}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.630052" elapsed="0.000044"/>
+</kw>
+<arg>${PROFILE_UPDATE_LAST_SALARY}</arg>
+<status status="PASS" start="2026-08-14T18:33:49.629744" elapsed="0.000386"/>
 </kw>
 <kw name="Upload Resume Document" owner="ProfilePage">
-<arg>${POST_DOCUMENT}</arg>
-<status status="NOT RUN" start="2026-08-11T21:30:48.136842" elapsed="0.000055"/>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${RESUME_FILE_INPUT}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.630356" elapsed="0.000077"/>
+</kw>
+<kw name="Choose File" owner="SeleniumLibrary">
+<arg>${RESUME_FILE_INPUT}</arg>
+<arg>${file_path}</arg>
+<doc>Inputs the ``file_path`` into the file input field ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.630513" elapsed="0.000046"/>
+</kw>
+<arg>${PROFILE_UPDATE_RESUME}</arg>
+<status status="PASS" start="2026-08-14T18:33:49.630219" elapsed="0.000374"/>
 </kw>
 <kw name="Select Preferred Industry Option" owner="ProfilePage">
-<arg>${NEW_PROFILE_PREFERRED_INDUSTRY}</arg>
-<status status="NOT RUN" start="2026-08-11T21:30:48.137149" elapsed="0.000053"/>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${PREFERRED_INDUSTRY_INPUT}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.630845" elapsed="0.000412"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${PREFERRED_INDUSTRY_INPUT}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.631440" elapsed="0.000062"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>${PREFERRED_INDUSTRY_INPUT}</arg>
+<arg>${industry}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.631593" elapsed="0.000046"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//div[contains(@id,'-option') and normalize-space()='${industry}']</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.632027" elapsed="0.000155"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>xpath=//div[contains(@id,'-option') and normalize-space()='${industry}']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.632274" elapsed="0.000048"/>
+</kw>
+<arg>${PROFILE_UPDATE_PREFERRED_INDUSTRY}</arg>
+<status status="PASS" start="2026-08-14T18:33:49.630707" elapsed="0.001652"/>
 </kw>
 <kw name="Select Open For Relocation Yes" owner="ProfilePage">
-<status status="NOT RUN" start="2026-08-11T21:30:48.137433" elapsed="0.000084"/>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${RELOCATION_YES_RADIO}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.632606" elapsed="0.000041"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${RELOCATION_YES_RADIO}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.632711" elapsed="0.000074"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${RELOCATION_YES_RADIO}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.632867" elapsed="0.000038"/>
+</kw>
+<status status="PASS" start="2026-08-14T18:33:49.632473" elapsed="0.000464"/>
 </kw>
 <kw name="Select Notice Period Yes" owner="ProfilePage">
-<status status="NOT RUN" start="2026-08-11T21:30:48.137759" elapsed="0.000052"/>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${NOTICE_PERIOD_YES_RADIO}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.633139" elapsed="0.000034"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${NOTICE_PERIOD_YES_RADIO}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.633233" elapsed="0.000075"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${NOTICE_PERIOD_YES_RADIO}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.633371" elapsed="0.000032"/>
+</kw>
+<status status="PASS" start="2026-08-14T18:33:49.633030" elapsed="0.000401"/>
 </kw>
 <kw name="Click Additional Info Save Button" owner="ProfilePage">
-<status status="NOT RUN" start="2026-08-11T21:30:48.138024" elapsed="0.000053"/>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${ADDITIONAL_INFO_SAVE_BTN}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.633670" elapsed="0.000033"/>
 </kw>
-<doc>Navigates to profile, updates image + banner, then
-fills Additional Information: email (only if blank), preferred
-location, last salary, resume, preferred industry, relocation,
-and notice period — then saves.</doc>
-<status status="FAIL" start="2026-08-11T21:30:17.840816" elapsed="30.297457">Element 'xpath=//input[@type='file' and @name='profilePicture']' did not appear in 30 seconds.</status>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${ADDITIONAL_INFO_SAVE_BTN}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.633760" elapsed="0.000065"/>
 </kw>
-<doc>Logs in with a dedicated test email, then updates
-profile image, banner, and additional information.</doc>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${ADDITIONAL_INFO_SAVE_BTN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.633892" elapsed="0.000033"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>${ADDITIONAL_INFO_MODAL_TITLE}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.634200" elapsed="0.000075"/>
+</kw>
+<var>${modal_closed}</var>
+<arg>Wait Until Element Is Not Visible</arg>
+<arg>${ADDITIONAL_INFO_MODAL_TITLE}</arg>
+<arg>timeout=5s</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-14T18:33:49.633994" elapsed="0.000313"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${modal_closed}">
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${ADDITIONAL_INFO_CLOSE_BTN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.634657" elapsed="0.000038"/>
+</kw>
+<arg>10s</arg>
+<arg>1s</arg>
+<arg>Click Element</arg>
+<arg>${ADDITIONAL_INFO_CLOSE_BTN}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="PASS" start="2026-08-14T18:33:49.634474" elapsed="0.000248"/>
+</kw>
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>${ADDITIONAL_INFO_MODAL_TITLE}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.634787" elapsed="0.000072"/>
+</kw>
+<status status="PASS" start="2026-08-14T18:33:49.634390" elapsed="0.000499"/>
+</branch>
+<status status="PASS" start="2026-08-14T18:33:49.634368" elapsed="0.000555"/>
+</if>
+<kw name="Sleep" owner="BuiltIn">
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.634982" elapsed="0.000111"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<arg>window.scrollTo(0, document.body.scrollHeight)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.635157" elapsed="0.000038"/>
+</kw>
+<status status="PASS" start="2026-08-14T18:33:49.633567" elapsed="0.001660"/>
+</kw>
+<doc>Update profile image, banner and additional profile information.</doc>
+<status status="PASS" start="2026-08-14T18:33:49.626716" elapsed="0.008537"/>
+</kw>
+<kw name="Update User About Description" owner="ProfileKeywords">
+<kw name="Open About Edit Modal" owner="ProfilePage">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${ABOUT_EDIT_ICON}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.635596" elapsed="0.000071"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${ABOUT_EDIT_ICON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.635732" elapsed="0.000034"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${ABOUT_DESCRIPTION_INPUT}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.635826" elapsed="0.000067"/>
+</kw>
+<status status="PASS" start="2026-08-14T18:33:49.635489" elapsed="0.000437"/>
+</kw>
+<kw name="Enter About Description" owner="ProfilePage">
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${ABOUT_DESCRIPTION_INPUT}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.636111" elapsed="0.000034"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>${ABOUT_DESCRIPTION_INPUT}</arg>
+<arg>${description}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.636202" elapsed="0.000038"/>
+</kw>
+<arg>${PROFILE_ABOUT_DESCRIPTION}</arg>
+<status status="PASS" start="2026-08-14T18:33:49.636006" elapsed="0.000266"/>
+</kw>
+<kw name="Reset And Add About Skills" owner="ProfilePage">
+<kw name="Clear About Multi Select Values" owner="ProfilePage">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${input}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.636628" elapsed="0.000038"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<arg>${input}</arg>
+<arg>BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.636869" elapsed="0.000046"/>
+</kw>
+<var name="${index}"/>
+<status status="PASS" start="2026-08-14T18:33:49.636795" elapsed="0.000199"/>
+</iter>
+<var>${index}</var>
+<value>10</value>
+<status status="PASS" start="2026-08-14T18:33:49.636719" elapsed="0.000313"/>
+</for>
+<arg>${ABOUT_SKILLS_INPUT}</arg>
+<status status="PASS" start="2026-08-14T18:33:49.636519" elapsed="0.000559"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Add About Multi Select Value" owner="ProfilePage">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${input}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.637428" elapsed="0.000088"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${input}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.637590" elapsed="0.000038"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>${input}</arg>
+<arg>${value}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.637690" elapsed="0.000038"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=(//button[normalize-space()='+ ${value}'])[1]</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.637790" elapsed="0.000078"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>xpath=(//button[normalize-space()='+ ${value}'])[1]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.637932" elapsed="0.000040"/>
+</kw>
+<arg>${ABOUT_SKILLS_INPUT}</arg>
+<arg>${skill}</arg>
+<status status="PASS" start="2026-08-14T18:33:49.637261" elapsed="0.000742"/>
+</kw>
+<var name="${skill}"/>
+<status status="PASS" start="2026-08-14T18:33:49.637172" elapsed="0.000859"/>
+</iter>
+<var>${skill}</var>
+<value>@{skills}</value>
+<status status="PASS" start="2026-08-14T18:33:49.637118" elapsed="0.000947"/>
+</for>
+<arg>@{PROFILE_ABOUT_SKILLS}</arg>
+<status status="PASS" start="2026-08-14T18:33:49.636379" elapsed="0.001726"/>
+</kw>
+<kw name="Reset And Add About Interests" owner="ProfilePage">
+<kw name="Clear About Multi Select Values" owner="ProfilePage">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${input}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.638461" elapsed="0.000035"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<arg>${input}</arg>
+<arg>BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.638641" elapsed="0.000041"/>
+</kw>
+<var name="${index}"/>
+<status status="PASS" start="2026-08-14T18:33:49.638584" elapsed="0.000126"/>
+</iter>
+<var>${index}</var>
+<value>10</value>
+<status status="PASS" start="2026-08-14T18:33:49.638535" elapsed="0.000202"/>
+</for>
+<arg>${ABOUT_INTERESTS_INPUT}</arg>
+<status status="PASS" start="2026-08-14T18:33:49.638353" elapsed="0.000418"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Add About Multi Select Value" owner="ProfilePage">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${input}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.639039" elapsed="0.000072"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${input}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.639176" elapsed="0.000033"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>${input}</arg>
+<arg>${value}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.639267" elapsed="0.000036"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=(//button[normalize-space()='+ ${value}'])[1]</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.639363" elapsed="0.000071"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>xpath=(//button[normalize-space()='+ ${value}'])[1]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.639504" elapsed="0.000043"/>
+</kw>
+<arg>${ABOUT_INTERESTS_INPUT}</arg>
+<arg>${interest}</arg>
+<status status="PASS" start="2026-08-14T18:33:49.638923" elapsed="0.000655"/>
+</kw>
+<var name="${interest}"/>
+<status status="PASS" start="2026-08-14T18:33:49.638842" elapsed="0.000761"/>
+</iter>
+<var>${interest}</var>
+<value>@{interests}</value>
+<status status="PASS" start="2026-08-14T18:33:49.638802" elapsed="0.000829"/>
+</for>
+<arg>@{PROFILE_ABOUT_INTERESTS}</arg>
+<status status="PASS" start="2026-08-14T18:33:49.638210" elapsed="0.001456"/>
+</kw>
+<kw name="Click About Save Button" owner="ProfilePage">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<arg>const button = Array.from(document.querySelectorAll('button[type="submit"]')).find(el =&gt; el.textContent.trim() === 'Save Changes'); if (button) { button.scrollIntoView({block: 'center'}); }</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.639949" elapsed="0.000046"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${ABOUT_SAVE_BTN}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.640058" elapsed="0.000067"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${ABOUT_SAVE_BTN}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.640187" elapsed="0.000033"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${ABOUT_SAVE_BTN}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.640277" elapsed="0.000059"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${ABOUT_SAVE_BTN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.640397" elapsed="0.000031"/>
+</kw>
+<kw name="Reload Page" owner="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.640487" elapsed="0.000022"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.640564" elapsed="0.000133"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${EDUCATION_TAB}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.640769" elapsed="0.000066"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${EDUCATION_TAB}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.640907" elapsed="0.000034"/>
+</kw>
+<status status="PASS" start="2026-08-14T18:33:49.639767" elapsed="0.001204"/>
+</kw>
+<doc>Replaces About description, skills, and interests, then saves it.</doc>
+<status status="PASS" start="2026-08-14T18:33:49.635346" elapsed="0.005650"/>
+</kw>
+<kw name="Add User Education Details" owner="ProfileKeywords">
+<kw name="Click Add Education Button" owner="ProfilePage">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<arg>window.scrollTo(0, document.body.scrollHeight)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.641393" elapsed="0.000058"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${EDUCATION_ADD_BTN}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.641615" elapsed="0.000078"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${EDUCATION_ADD_BTN}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.641762" elapsed="0.000052"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${EDUCATION_ADD_BTN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.641902" elapsed="0.000043"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${ADD_EDUCATION_MODAL_TITLE}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.642010" elapsed="0.000069"/>
+</kw>
+<status status="PASS" start="2026-08-14T18:33:49.641260" elapsed="0.000868"/>
+</kw>
+<kw name="Enter Education Degree" owner="ProfilePage">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${EDU_DEGREE_INPUT}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.642351" elapsed="0.000070"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${EDU_DEGREE_INPUT}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.642484" elapsed="0.000033"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>${EDU_DEGREE_INPUT}</arg>
+<arg>${degree}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.642574" elapsed="0.000038"/>
+</kw>
+<arg>${EDU_DEGREE}</arg>
+<status status="PASS" start="2026-08-14T18:33:49.642235" elapsed="0.000407"/>
+</kw>
+<kw name="Enter Education Institution" owner="ProfilePage">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${EDU_INSTITUTION_INPUT}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.642837" elapsed="0.000068"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${EDU_INSTITUTION_INPUT}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.642965" elapsed="0.000032"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>${EDU_INSTITUTION_INPUT}</arg>
+<arg>${institution}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.643054" elapsed="0.000037"/>
+</kw>
+<arg>${EDU_INSTITUTION}</arg>
+<status status="PASS" start="2026-08-14T18:33:49.642727" elapsed="0.000394"/>
+</kw>
+<kw name="Enter Education Field Of Study" owner="ProfilePage">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${EDU_FIELD_OF_STUDY_INPUT}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.643313" elapsed="0.000062"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${EDU_FIELD_OF_STUDY_INPUT}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.643439" elapsed="0.000034"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>${EDU_FIELD_OF_STUDY_INPUT}</arg>
+<arg>${field_of_study}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.643529" elapsed="0.000037"/>
+</kw>
+<arg>${EDU_FIELD_OF_STUDY}</arg>
+<status status="PASS" start="2026-08-14T18:33:49.643203" elapsed="0.000393"/>
+</kw>
+<kw name="Enter Education Location" owner="ProfilePage">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${EDU_LOCATION_INPUT}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.643786" elapsed="0.000070"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${EDU_LOCATION_INPUT}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.643916" elapsed="0.000032"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>${EDU_LOCATION_INPUT}</arg>
+<arg>${location}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.644003" elapsed="0.000038"/>
+</kw>
+<arg>${EDU_LOCATION}</arg>
+<status status="PASS" start="2026-08-14T18:33:49.643679" elapsed="0.000391"/>
+</kw>
+<kw name="Select Education Start Date" owner="ProfilePage">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${EDU_START_MONTH_DROPDOWN}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.644261" elapsed="0.000062"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${EDU_START_YEAR_DROPDOWN}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.644383" elapsed="0.000059"/>
+</kw>
+<kw name="Select Education Date Dropdown Value" owner="ProfilePage">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${dropdown}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.644637" elapsed="0.000034"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=(//*[@role='option' and normalize-space()='${value}'])[1]</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.644729" elapsed="0.000072"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>xpath=(//*[@role='option' and normalize-space()='${value}'])[1]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.644919" elapsed="0.000063"/>
+</kw>
+<arg>${EDU_START_MONTH_DROPDOWN}</arg>
+<arg>${month}</arg>
+<status status="PASS" start="2026-08-14T18:33:49.644522" elapsed="0.000505"/>
+</kw>
+<kw name="Select Education Date Dropdown Value" owner="ProfilePage">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${dropdown}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.645249" elapsed="0.000032"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=(//*[@role='option' and normalize-space()='${value}'])[1]</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.645338" elapsed="0.000073"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>xpath=(//*[@role='option' and normalize-space()='${value}'])[1]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.645472" elapsed="0.000038"/>
+</kw>
+<arg>${EDU_START_YEAR_DROPDOWN}</arg>
+<arg>${year}</arg>
+<status status="PASS" start="2026-08-14T18:33:49.645128" elapsed="0.000411"/>
+</kw>
+<arg>${EDU_START_MONTH}</arg>
+<arg>${EDU_START_YEAR}</arg>
+<status status="PASS" start="2026-08-14T18:33:49.644154" elapsed="0.001412"/>
+</kw>
+<kw name="Select Education End Date" owner="ProfilePage">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${EDU_END_MONTH_DROPDOWN}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.645788" elapsed="0.000069"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${EDU_END_YEAR_DROPDOWN}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.645962" elapsed="0.000071"/>
+</kw>
+<kw name="Select Education Date Dropdown Value" owner="ProfilePage">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${dropdown}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.646238" elapsed="0.000035"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=(//*[@role='option' and normalize-space()='${value}'])[1]</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.646331" elapsed="0.000071"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>xpath=(//*[@role='option' and normalize-space()='${value}'])[1]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.646463" elapsed="0.000040"/>
+</kw>
+<arg>${EDU_END_MONTH_DROPDOWN}</arg>
+<arg>${month}</arg>
+<status status="PASS" start="2026-08-14T18:33:49.646121" elapsed="0.000412"/>
+</kw>
+<kw name="Select Education Date Dropdown Value" owner="ProfilePage">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${dropdown}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.646727" elapsed="0.000033"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=(//*[@role='option' and normalize-space()='${value}'])[1]</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.646817" elapsed="0.000072"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>xpath=(//*[@role='option' and normalize-space()='${value}'])[1]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.646951" elapsed="0.000040"/>
+</kw>
+<arg>${EDU_END_YEAR_DROPDOWN}</arg>
+<arg>${year}</arg>
+<status status="PASS" start="2026-08-14T18:33:49.646612" elapsed="0.000408"/>
+</kw>
+<arg>${EDU_END_MONTH}</arg>
+<arg>${EDU_END_YEAR}</arg>
+<status status="PASS" start="2026-08-14T18:33:49.645651" elapsed="0.001397"/>
+</kw>
+<kw name="Click Add Education Save Button" owner="ProfilePage">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${EDU_SAVE_BTN}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.647251" elapsed="0.000040"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${EDU_SAVE_BTN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.647354" elapsed="0.000034"/>
+</kw>
+<status status="PASS" start="2026-08-14T18:33:49.647136" elapsed="0.000281"/>
+</kw>
+<kw name="Refresh Profile Page" owner="ProfilePage">
+<kw name="Reload Page" owner="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.647622" elapsed="0.000024"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${EXPERIENCE_TAB}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.647712" elapsed="0.000110"/>
+</kw>
+<status status="PASS" start="2026-08-14T18:33:49.647514" elapsed="0.000374"/>
+</kw>
+<kw name="Click Experience Tab" owner="ProfilePage">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${EXPERIENCE_TAB}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.648100" elapsed="0.000077"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${EXPERIENCE_TAB}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.648259" elapsed="0.000038"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${EXPERIENCE_TAB}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.648363" elapsed="0.000034"/>
+</kw>
+<status status="PASS" start="2026-08-14T18:33:49.647981" elapsed="0.000446"/>
+</kw>
+<doc>Opens Add Education modal, fills degree,
+institution, field of study, location, and start/end
+dates, then saves.</doc>
+<status status="PASS" start="2026-08-14T18:33:49.641101" elapsed="0.007369"/>
+</kw>
+<kw name="Add User Experience Details" owner="ProfileKeywords">
+<kw name="Click Add Experience Button" owner="ProfilePage">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${EXPERIENCE_ADD_BTN}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.648887" elapsed="0.000090"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${EXPERIENCE_ADD_BTN}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.649070" elapsed="0.000040"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${EXPERIENCE_ADD_BTN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.649174" elapsed="0.000033"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${ADD_EXPERIENCE_MODAL_TITLE}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.649263" elapsed="0.000062"/>
+</kw>
+<status status="PASS" start="2026-08-14T18:33:49.648769" elapsed="0.000589"/>
+</kw>
+<kw name="Enter Experience Details" owner="ProfilePage">
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>${EXP_JOB_TITLE_INPUT}</arg>
+<arg>${job_title}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.649569" elapsed="0.000040"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>${EXP_DESCRIPTION_INPUT}</arg>
+<arg>${description}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.649670" elapsed="0.000037"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>${EXP_COMPANY_NAME_INPUT}</arg>
+<arg>${company_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.649764" elapsed="0.000037"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>${EXP_LOCATION_INPUT}</arg>
+<arg>${location}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.649862" elapsed="0.000037"/>
+</kw>
+<arg>${EXP_JOB_TITLE}</arg>
+<arg>${EXP_DESCRIPTION}</arg>
+<arg>${EXP_COMPANY_NAME}</arg>
+<arg>${EXP_LOCATION}</arg>
+<status status="PASS" start="2026-08-14T18:33:49.649445" elapsed="0.000483"/>
+</kw>
+<kw name="Select Experience Start Date" owner="ProfilePage">
+<kw name="Select Experience Date Value" owner="ProfilePage">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${dropdown}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.650285" elapsed="0.000033"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=(//*[@role='option' and normalize-space()='${value}'])[1]</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.650376" elapsed="0.000078"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>xpath=(//*[@role='option' and normalize-space()='${value}'])[1]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.650613" elapsed="0.000056"/>
+</kw>
+<arg>${EXP_START_MONTH_DROPDOWN}</arg>
+<arg>${month}</arg>
+<status status="PASS" start="2026-08-14T18:33:49.650177" elapsed="0.000526"/>
+</kw>
+<kw name="Select Experience Date Value" owner="ProfilePage">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${dropdown}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.650917" elapsed="0.000036"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=(//*[@role='option' and normalize-space()='${value}'])[1]</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.651012" elapsed="0.000076"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>xpath=(//*[@role='option' and normalize-space()='${value}'])[1]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.651151" elapsed="0.000044"/>
+</kw>
+<arg>${EXP_START_YEAR_DROPDOWN}</arg>
+<arg>${year}</arg>
+<status status="PASS" start="2026-08-14T18:33:49.650791" elapsed="0.000434"/>
+</kw>
+<arg>${EXP_START_MONTH}</arg>
+<arg>${EXP_START_YEAR}</arg>
+<status status="PASS" start="2026-08-14T18:33:49.650012" elapsed="0.001241"/>
+</kw>
+<kw name="Select Currently Working Here" owner="ProfilePage">
+<kw name="Select Checkbox" owner="SeleniumLibrary">
+<arg>${EXP_CURRENTLY_WORKING}</arg>
+<doc>Selects the checkbox identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.651436" elapsed="0.000034"/>
+</kw>
+<status status="PASS" start="2026-08-14T18:33:49.651333" elapsed="0.000166"/>
+</kw>
+<kw name="Click Add Experience Save Button" owner="ProfilePage">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${EXP_SAVE_BTN}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.651675" elapsed="0.000065"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${EXP_SAVE_BTN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.651802" elapsed="0.000031"/>
+</kw>
+<kw name="Refresh Profile Page" owner="ProfilePage">
+<kw name="Reload Page" owner="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.652016" elapsed="0.000023"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${EXPERIENCE_TAB}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-14T18:33:49.652098" elapsed="0.000067"/>
+</kw>
+<status status="PASS" start="2026-08-14T18:33:49.651913" elapsed="0.000284"/>
+</kw>
+<status status="PASS" start="2026-08-14T18:33:49.651575" elapsed="0.000646"/>
+</kw>
+<doc>Adds the current Zonal Head experience record.</doc>
+<status status="PASS" start="2026-08-14T18:33:49.648601" elapsed="0.003641"/>
+</kw>
+<kw name="Add User Award And Certification">
+<msg time="2026-08-14T18:33:49.653885" level="FAIL">No keyword with name 'Add User Award And Certification' found.</msg>
+<status status="FAIL" start="2026-08-14T18:33:49.653823" elapsed="0.000128">No keyword with name 'Add User Award And Certification' found.</status>
+</kw>
+<kw name="Add User Publication">
+<msg time="2026-08-14T18:33:49.655239" level="FAIL">No keyword with name 'Add User Publication' found.</msg>
+<status status="FAIL" start="2026-08-14T18:33:49.655214" elapsed="0.000054">No keyword with name 'Add User Publication' found.</status>
+</kw>
+<kw name="Add User English Language">
+<msg time="2026-08-14T18:33:49.656535" level="FAIL">No keyword with name 'Add User English Language' found.</msg>
+<status status="FAIL" start="2026-08-14T18:33:49.656514" elapsed="0.000043">No keyword with name 'Add User English Language' found.</status>
+</kw>
+<doc>Login and update all profile sections.</doc>
 <tag>profile</tag>
 <tag>regression</tag>
-<status status="FAIL" start="2026-08-11T21:29:55.062330" elapsed="53.076742">Element 'xpath=//input[@type='file' and @name='profilePicture']' did not appear in 30 seconds.</status>
+<status status="FAIL" start="2026-08-14T18:33:49.623556" elapsed="0.033129">Several failures occurred:
+
+1) No keyword with name 'Add User Award And Certification' found.
+
+2) No keyword with name 'Add User Publication' found.
+
+3) No keyword with name 'Add User English Language' found.</status>
 </test>
 <kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2026-08-11T21:30:48.141236" elapsed="2.211133"/>
+<status status="NOT RUN" start="2026-08-14T18:33:49.657081" elapsed="0.000041"/>
 </kw>
-<doc>Test suite for User Profile updates.</doc>
-<status status="FAIL" start="2026-08-11T21:29:51.094357" elapsed="59.258093"/>
+<doc>Test suite for updating complete user profile details.</doc>
+<status status="FAIL" start="2026-08-14T18:33:49.326948" elapsed="0.330203"/>
 </suite>
 <statistics>
 <total>

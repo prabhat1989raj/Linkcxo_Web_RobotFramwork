@@ -1,9 +1,7 @@
 *** Settings ***
 Documentation    Business-flow keywords for updating User Profile details.
-
 Resource    ../Pages/ProfilePage.robot
 Resource    ../Variables/TestData.robot
-
 
 *** Keywords ***
 
@@ -21,4 +19,34 @@ Update Profile Image Banner And Summary Details
     ProfilePage.Select Open For Relocation Yes
     ProfilePage.Select Notice Period Yes
     ProfilePage.Click Additional Info Save Button
-    
+
+Add User Education Details
+    [Documentation]    Opens Add Education modal, fills degree,
+    ...    institution, field of study, location, and start/end
+    ...    dates, then saves.
+    ProfilePage.Click Add Education Button
+    ProfilePage.Enter Education Degree            ${EDU_DEGREE}
+    ProfilePage.Enter Education Institution       ${EDU_INSTITUTION}
+    ProfilePage.Enter Education Field Of Study    ${EDU_FIELD_OF_STUDY}
+    ProfilePage.Enter Education Location          ${EDU_LOCATION}
+    ProfilePage.Select Education Start Date       ${EDU_START_MONTH}    ${EDU_START_YEAR}
+    ProfilePage.Select Education End Date         ${EDU_END_MONTH}      ${EDU_END_YEAR}
+    ProfilePage.Click Add Education Save Button
+    ProfilePage.Refresh Profile Page
+    ProfilePage.Click Experience Tab
+
+Add User Experience Details
+    [Documentation]    Adds the current Zonal Head experience record.
+    ProfilePage.Click Add Experience Button
+    ProfilePage.Enter Experience Details    ${EXP_JOB_TITLE}    ${EXP_DESCRIPTION}    ${EXP_COMPANY_NAME}    ${EXP_LOCATION}
+    ProfilePage.Select Experience Start Date    ${EXP_START_MONTH}    ${EXP_START_YEAR}
+    ProfilePage.Select Currently Working Here
+    ProfilePage.Click Add Experience Save Button
+
+Update User About Description
+    [Documentation]    Replaces About description, skills, and interests, then saves it.
+    ProfilePage.Open About Edit Modal
+    ProfilePage.Enter About Description    ${PROFILE_ABOUT_DESCRIPTION}
+    ProfilePage.Reset And Add About Skills    @{PROFILE_ABOUT_SKILLS}
+    ProfilePage.Reset And Add About Interests    @{PROFILE_ABOUT_INTERESTS}
+    ProfilePage.Click About Save Button

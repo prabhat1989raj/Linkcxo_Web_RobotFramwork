@@ -1,5 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary
+Resource   ../Variables/TestData.robot
 
 *** Variables ***
 
@@ -37,7 +38,7 @@ Signup Using Email
     Click Element                    ${LOGIN_BUTTON}
 
     Wait Until Element Is Visible    ${EMAIL_INPUT}    30s
-    Input Text                       ${EMAIL_INPUT}    kprabhat18@gmail.com
+    Input Text                       ${EMAIL_INPUT}    ${SIGNUP_EMAIL}
 
     Wait Until Element Is Visible    ${CONTINUE_BUTTON}    20s
     Click Element                    ${CONTINUE_BUTTON}
@@ -63,7 +64,7 @@ Signup Using Email
     Input Text                       ${YEARS_OF_EXPERIENCE}    14
 
     Wait Until Element Is Visible    ${PHONE_NUMBER}    20s
-    Input Text                       ${PHONE_NUMBER}    8960668695
+    Input Text                       ${PHONE_NUMBER}    ${SIGNUP_EMAIL_MOBILE}
 
     Wait Until Element Is Visible    ${LINKEDIN_LINK}    20s
     Input Text
