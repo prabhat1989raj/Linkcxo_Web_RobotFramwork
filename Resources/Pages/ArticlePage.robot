@@ -35,9 +35,8 @@ Create New Article
     Input Text                       ${ARTICLE_CONTENT}    ${ARTICLE_CONTENT_TEXT}
 
     Wait Until Element Is Enabled    ${ARTICLE_PUBLISH_BUTTON}    ${TIMEOUT}
-    Sleep    5s
-    Execute JavaScript
-    ...    document.evaluate("${ARTICLE_PUBLISH_BUTTON_XPATH}", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click();
+    Scroll Element Into View         ${ARTICLE_PUBLISH_BUTTON}
+    Click Element                    ${ARTICLE_PUBLISH_BUTTON}
 
     # NOTE: still an unverified guess — if this line fails, Publish likely
     # worked but this success indicator doesn't exist on the page.

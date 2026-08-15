@@ -8,7 +8,7 @@ Suite Teardown    Close Application
 
 
 *** Variables ***
-${DELAY}    1s
+${DELAY}    2s
 
 
 *** Test Cases ***

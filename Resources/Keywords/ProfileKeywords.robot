@@ -43,6 +43,27 @@ Add User Experience Details
     ProfilePage.Select Currently Working Here
     ProfilePage.Click Add Experience Save Button
 
+Add User Award And Certification
+    [Documentation]    Adds an award/certification record to the profile.
+    ProfilePage.Click Awards And Certification Tab
+    ProfilePage.Click Add Award Button
+    ProfilePage.Enter Award Details    ${AWARD_TITLE}    ${AWARD_CERTIFIED_BY}    ${AWARD_ISSUED_DATE}    ${AWARD_DESCRIPTION}
+    ProfilePage.Click Add Award Save Button
+
+Add User Publication
+    [Documentation]    Adds a publication record to the profile.
+    ProfilePage.Click Publications Tab
+    ProfilePage.Click Add Publication Button
+    ProfilePage.Enter Publication Details    ${PUBLICATION_TITLE}    ${PUBLICATION_PUBLISHED_BY}    ${PUBLICATION_PUBLISHED_ON}    ${PUBLICATION_DESCRIPTION}
+    ProfilePage.Click Add Publication Save Button
+
+Add User English Language
+    [Documentation]    Adds English with reading, writing and speaking proficiencies.
+    ProfilePage.Click Languages Tab
+    ProfilePage.Click Edit Languages Button
+    ProfilePage.Add English Language With All Proficiencies
+    ProfilePage.Click Add Language Save Button
+
 Update User About Description
     [Documentation]    Replaces About description, skills, and interests, then saves it.
     ProfilePage.Open About Edit Modal

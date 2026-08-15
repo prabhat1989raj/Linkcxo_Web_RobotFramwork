@@ -29,6 +29,10 @@ ${FINAL_CONTINUE_BUTTON}       xpath=//button[normalize-space()='Continue']
 
 *** Keywords ***
 
+Validate Signup Email
+    [Arguments]    ${email}
+    Should Match Regexp    ${email}    ^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$
+
 Signup Using Email
 
     Wait Until Page Contains Element    xpath=//body    30s
@@ -38,6 +42,7 @@ Signup Using Email
     Click Element                    ${LOGIN_BUTTON}
 
     Wait Until Element Is Visible    ${EMAIL_INPUT}    30s
+    Validate Signup Email             ${SIGNUP_EMAIL}
     Input Text                       ${EMAIL_INPUT}    ${SIGNUP_EMAIL}
 
     Wait Until Element Is Visible    ${CONTINUE_BUTTON}    20s
@@ -74,7 +79,7 @@ Signup Using Email
     Wait Until Element Is Visible    ${FINAL_CONTINUE_BUTTON}    20s
     Click Element                    ${FINAL_CONTINUE_BUTTON}
 
-    Sleep    10s
+    Sleep    15s
 
     Capture Page Screenshot
 

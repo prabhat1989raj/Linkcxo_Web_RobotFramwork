@@ -9,7 +9,7 @@ Suite Teardown    Close Browser
 *** Variables ***
 ${URL}        https://cxostory.in/
 ${BROWSER}    Chrome
-${DELAY}      1s
+${DELAY}      2s
 
 
 *** Test Cases ***

@@ -244,9 +244,12 @@ Select Education End Date
 
 Select Education Date Dropdown Value
     [Arguments]    ${dropdown}    ${value}
-    Click Element    ${dropdown}
-    Wait Until Element Is Visible    xpath=(//*[@role='option' and normalize-space()='${value}'])[1]    timeout=10s
-    Click Element    xpath=(//*[@role='option' and normalize-space()='${value}'])[1]
+    ${native_select}=    Run Keyword And Return Status    Select From List By Label    ${dropdown}    ${value}
+    IF    not ${native_select}
+        Click Element    ${dropdown}
+        Wait Until Element Is Visible    xpath=(//*[@role='option' and normalize-space()='${value}'])[1]    timeout=10s
+        Click Element    xpath=(//*[@role='option' and normalize-space()='${value}'])[1]
+    END
 
 Click Add Education Save Button
     Scroll Element Into View    ${EDU_SAVE_BTN}
@@ -293,3 +296,82 @@ Click Add Experience Save Button
     Click Element    ${EXP_SAVE_BTN}
     Refresh Profile Page
 
+# ============================================================
+# AWARDS & CERTIFICATION
+# ============================================================
+
+Click Awards And Certification Tab
+    Wait Until Element Is Visible    ${AWARDS_CERTIFICATION_TAB}    timeout=30s
+    Click Element    ${AWARDS_CERTIFICATION_TAB}
+
+Click Add Award Button
+    Wait Until Element Is Visible    ${ADD_AWARD_BTN}    timeout=30s
+    Scroll Element Into View    ${ADD_AWARD_BTN}
+    Click Element    ${ADD_AWARD_BTN}
+    Wait Until Element Is Visible    ${ADD_AWARD_MODAL_TITLE}    timeout=10s
+
+Enter Award Details
+    [Arguments]    ${title}    ${issued_by}    ${issued_date}    ${description}
+    Input Text    ${AWARD_TITLE_INPUT}    ${title}
+    Input Text    ${AWARD_CERTIFIED_BY_INPUT}    ${issued_by}
+    Input Text    ${AWARD_ISSUED_DATE_INPUT}    ${issued_date}
+    Input Text    ${AWARD_DESCRIPTION_INPUT}    ${description}
+
+Click Add Award Save Button
+    Wait Until Element Is Visible    ${AWARD_SAVE_BTN}    timeout=30s
+    Click Element    ${AWARD_SAVE_BTN}
+    Wait Until Element Is Not Visible    ${ADD_AWARD_MODAL_TITLE}    timeout=30s
+
+# ============================================================
+# PUBLICATIONS
+# ============================================================
+
+Click Publications Tab
+    Wait Until Element Is Visible    ${PUBLICATIONS_TAB}    timeout=30s
+    Click Element    ${PUBLICATIONS_TAB}
+
+Click Add Publication Button
+    Wait Until Element Is Visible    ${ADD_PUBLICATION_BTN}    timeout=30s
+    Scroll Element Into View    ${ADD_PUBLICATION_BTN}
+    Click Element    ${ADD_PUBLICATION_BTN}
+    Wait Until Element Is Visible    ${PUBLICATION_TITLE_INPUT}    timeout=10s
+
+Enter Publication Details
+    [Arguments]    ${title}    ${published_by}    ${published_on}    ${description}
+    Input Text    ${PUBLICATION_TITLE_INPUT}    ${title}
+    Input Text    ${PUBLICATION_PUBLISHED_BY_INPUT}    ${published_by}
+    Input Text    ${PUBLICATION_PUBLISHED_ON_INPUT}    ${published_on}
+    Input Text    ${PUBLICATION_DESCRIPTION_INPUT}    ${description}
+
+Click Add Publication Save Button
+    Wait Until Element Is Visible    ${PUBLICATION_SAVE_BTN}    timeout=30s
+    Click Element    ${PUBLICATION_SAVE_BTN}
+    Wait Until Element Is Not Visible    ${PUBLICATION_TITLE_INPUT}    timeout=30s
+
+# ============================================================
+# LANGUAGES
+# ============================================================
+
+Click Languages Tab
+    Wait Until Element Is Visible    ${LANGUAGES_TAB}    timeout=30s
+    Click Element    ${LANGUAGES_TAB}
+
+Click Edit Languages Button
+    Wait Until Element Is Visible    ${EDIT_LANGUAGES_BTN}    timeout=30s
+    Scroll Element Into View    ${EDIT_LANGUAGES_BTN}
+    Click Element    ${EDIT_LANGUAGES_BTN}
+    Wait Until Element Is Visible    ${LANGUAGE_DROPDOWN}    timeout=10s
+
+Add English Language With All Proficiencies
+    Click Element    ${LANGUAGE_DROPDOWN}
+    Input Text    ${LANGUAGE_DROPDOWN}    English
+    Wait Until Element Is Visible    ${LANGUAGE_ENGLISH_OPTION}    timeout=10s
+    Click Element    ${LANGUAGE_ENGLISH_OPTION}
+    Click Element    ${LANGUAGE_READING}
+    Click Element    ${LANGUAGE_WRITING}
+    Click Element    ${LANGUAGE_SPEAKING}
+    Click Element    ${LANGUAGE_ADD_BTN}
+
+Click Add Language Save Button
+    Wait Until Element Is Visible    ${LANGUAGE_SAVE_BTN}    timeout=30s
+    Click Element    ${LANGUAGE_SAVE_BTN}

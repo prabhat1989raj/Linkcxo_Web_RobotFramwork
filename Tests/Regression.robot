@@ -13,6 +13,7 @@ Resource    ../Resources/Pages/ArticlePage.robot
 Resource    ../Resources/Pages/SurveyPage.robot
 Resource    ../Resources/Pages/ClubPage.robot
 Resource    ../Resources/Pages/EventPage.robot
+Resource    ../Resources/Pages/JobPage.robot
 Resource    ../Resources/Keywords/ProfileKeywords.robot
 Resource    ../Resources/Pages/ProfilePage.robot
 Resource    ../Resources/Variables/Locators.robot
@@ -38,6 +39,8 @@ Login With Email
     [Documentation]    Verifies login with the email-signup user.
     [Tags]    login    smoke
     Login To Application    email=${SIGNUP_EMAIL}
+    Reload Page
+    Wait Until Element Is Visible    ${USER_PROFILE_LINK}    timeout=15s
 
 Create Post After Login
     [Documentation]    Verifies a logged-in user can create a text/image post
@@ -112,3 +115,20 @@ Create Public And Private Club Successfully
     Execute Javascript    document.evaluate("//button[normalize-space()='Create Club']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click();
 
     Create New Club    ${CLUB_TYPE_PRIVATE}
+
+Bookmark And Apply To Recommended Job
+    [Documentation]    Verifies a user can bookmark and apply to a recommended job, then view a LinkedIn job post in a new tab.
+    [Tags]    jobs    regression
+    Set Selenium Speed    2s
+    Login To Application
+    Reload Page
+    Grant Location Permission
+    Sleep    10s
+    Open Recommended Jobs
+    Bookmark Recommended Job
+    ${jobs_window}=    Open External Job Application
+    Return To Jobs Tab    ${jobs_window}
+    Open All Jobs My Jobs And LinkedIn Job Post
+    Bookmark Recommended Job
+    ${jobs_window}=    Open LinkedIn Job Post
+    Return To Jobs Tab    ${jobs_window}

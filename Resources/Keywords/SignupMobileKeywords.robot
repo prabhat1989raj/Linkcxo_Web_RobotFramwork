@@ -6,7 +6,7 @@ Resource   ../Variables/TestData.robot
 
 ${LOGIN_BUTTON}                xpath=(//button[text()='Login'])[1]
 ${MOBILE_TOGGLE}               xpath=//button[normalize-space()='Mobile']
-${MOBILE_INPUT}                xpath=//input[@placeholder='Enter Your Mobile Number']
+${MOBILE_INPUT}                xpath=//input[@type='tel' or @name='mobile' or @name='mobileNumber' or @id='mobile' or @id='mobileNumber' or contains(translate(@placeholder, 'MOBILE', 'mobile'), 'mobile')]
 ${CONTINUE_BUTTON}             xpath=//button[normalize-space()='Continue']
 
 ${OTP_INPUTS}                  xpath=//input[starts-with(@name,'otp-input-')]
@@ -28,6 +28,10 @@ ${FINAL_CONTINUE_BUTTON}       xpath=//button[normalize-space()='Continue']
 
 *** Keywords ***
 
+Validate Signup Mobile Number
+    [Arguments]    ${mobile_number}
+    Should Match Regexp    ${mobile_number}    ^[0-9]{10}$
+
 Signup Using Mobile
 
     Wait Until Page Contains Element    xpath=//body    30s
@@ -39,7 +43,8 @@ Signup Using Mobile
     Wait Until Element Is Visible    ${MOBILE_TOGGLE}    20s
     Click Element                    ${MOBILE_TOGGLE}
 
-    Wait Until Element Is Visible    ${MOBILE_INPUT}    20s
+    Wait Until Element Is Visible    ${MOBILE_INPUT}    30s
+    Validate Signup Mobile Number     ${SIGNUP_MOBILE}
     Input Text                       ${MOBILE_INPUT}    ${SIGNUP_MOBILE}
 
     Wait Until Element Is Visible    ${CONTINUE_BUTTON}    20s

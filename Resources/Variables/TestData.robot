@@ -4,14 +4,14 @@
 # Login Test Data
 # ==========================================
 
-${EMAIL}                         linkcxo123@gmail.com
+${EMAIL}                         linkcxo12354@gmail.com
 ${OTP}                           444444
 
 # Signup test data
-${SIGNUP_EMAIL}                  linkcxo123@gmail.com
-${SIGNUP_EMAIL_MOBILE}           8484848485
-${SIGNUP_MOBILE}                 9999999999
-${SIGNUP_MOBILE_EMAIL}           kprabhat99999@gmail.com
+${SIGNUP_EMAIL}                  linkcxo12354@gmail.com
+${SIGNUP_EMAIL_MOBILE}           8484666666
+${SIGNUP_MOBILE}                 9999966663
+${SIGNUP_MOBILE_EMAIL}           kprabhat944@gmail.com
 
 # ==========================================
 # Post Test Data
