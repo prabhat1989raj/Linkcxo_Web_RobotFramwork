@@ -4,14 +4,14 @@
 # Login Test Data
 # ==========================================
 
-${EMAIL}                         linkcxo12354@gmail.com
+${EMAIL}                         kprabhat9566@gmail.com
 ${OTP}                           444444
 
 # Signup test data
-${SIGNUP_EMAIL}                  linkcxo12354@gmail.com
-${SIGNUP_EMAIL_MOBILE}           8484666666
-${SIGNUP_MOBILE}                 9999966663
-${SIGNUP_MOBILE_EMAIL}           kprabhat944@gmail.com
+${SIGNUP_EMAIL}                  kprabhat9566@gmail.com
+${SIGNUP_EMAIL_MOBILE}           8484666225
+${SIGNUP_MOBILE}                 9999966225
+${SIGNUP_MOBILE_EMAIL}           kprabhat9566@gmail.com
 
 # ==========================================
 # Post Test Data
@@ -163,5 +163,15 @@ ${PUBLICATION_TITLE}          Evolution 2.0
 ${PUBLICATION_PUBLISHED_BY}   Gyanesh Kumar
 ${PUBLICATION_PUBLISHED_ON}   01-01-2024
 ${PUBLICATION_DESCRIPTION}    This is the descrition of publication
+
+# ------------------------------------------------------------
+# Rewards - Delivery Address
+# ------------------------------------------------------------
+${DELIVERY_PINCODE}           400703
+${DELIVERY_ADDRESS_LINE}      Office no. 903-04, 9th Floor, B Tower, Plot No. 13/1, Arihant Aura
+${DELIVERY_AREA}              Thane Belapur Road, Turbhe
+${DELIVERY_STATE}             Maharashtra
+${DELIVERY_CITY}              Navi Mumbai
+${DELIVERY_GST_NUMBER}        27AAEFE2825M1ZA
 
 

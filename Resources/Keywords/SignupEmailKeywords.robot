@@ -15,8 +15,8 @@ ${FIRST_NAME}                  xpath=//input[@id='firstName']
 ${LAST_NAME}                   xpath=//input[@id='lastName']
 ${COMPANY_NAME}                xpath=//input[@id='companyName']
 
-${DESIGNATION_DROPDOWN}        xpath=//label[contains(text(),'Designation')]/following::div[1]
-${MARKETING_HEAD}              xpath=//div[@role='option'][1]
+${DESIGNATION_DROPDOWN}        xpath=//input[@placeholder='Current Designation']
+${MARKETING_HEAD}              xpath=//div[@role='option']
 
 ${YEARS_OF_EXPERIENCE}         xpath=//input[@id='yearsOfExperience']
 ${PHONE_NUMBER}                xpath=//input[@id='phoneNo']
@@ -51,7 +51,7 @@ Signup Using Email
     Submit OTP
 
     Wait Until Element Is Visible    ${FIRST_NAME}    30s
-    Input Text                       ${FIRST_NAME}    Raj
+    Input Text                       ${FIRST_NAME}    Sajeet
 
     Wait Until Element Is Visible    ${LAST_NAME}    20s
     Input Text                       ${LAST_NAME}    Kumar
@@ -62,8 +62,7 @@ Signup Using Email
     Wait Until Element Is Visible    ${DESIGNATION_DROPDOWN}    20s
     Click Element                    ${DESIGNATION_DROPDOWN}
 
-    Wait Until Element Is Visible    ${MARKETING_HEAD}    20s
-    Click Element                    ${MARKETING_HEAD}
+    Select First Visible Designation Option
 
     Wait Until Element Is Visible    ${YEARS_OF_EXPERIENCE}    20s
     Input Text                       ${YEARS_OF_EXPERIENCE}    14
@@ -101,3 +100,15 @@ Submit OTP
 
     Wait Until Element Is Visible    ${OTP_CONTINUE_BUTTON}    20s
     Click Element                    ${OTP_CONTINUE_BUTTON}
+
+Select First Visible Designation Option
+    Wait Until Page Contains Element    ${MARKETING_HEAD}    20s
+    @{options}=    Get WebElements    ${MARKETING_HEAD}
+    FOR    ${option}    IN    @{options}
+        ${visible}=    Run Keyword And Return Status    Element Should Be Visible    ${option}
+        IF    ${visible}
+            Click Element    ${option}
+            RETURN
+        END
+    END
+    Fail    No visible designation option was available.

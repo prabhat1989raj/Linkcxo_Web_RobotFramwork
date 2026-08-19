@@ -3,7 +3,7 @@ Documentation       Job-module test suite for recommended-job bookmark and exter
 Resource            ../Resources/Pages/LoginPage.robot
 Resource            ../Resources/Pages/JobPage.robot
 
-Suite Setup         Run Keywords    Open Application    AND    Login To Application
+Suite Setup         Run Keywords    Open Application    AND    Login To Application    email=kprabhat956@gmail.com
 Suite Teardown      Close Application
 
 *** Test Cases ***

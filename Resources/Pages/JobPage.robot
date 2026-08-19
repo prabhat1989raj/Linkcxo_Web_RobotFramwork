@@ -12,7 +12,7 @@ ${LINKEDIN_JOB_POST_TAB}    xpath=//*[self::div or self::span or self::p or self
 ${JOB_DETAILS_PANEL}        xpath=//button[normalize-space()='Save' or normalize-space()='Saved']/ancestor::*[self::div or self::section][1]
 ${BOOKMARK_BUTTON}          xpath=//button[normalize-space()='Save']
 ${EXTERNAL_APPLY_BUTTON}    xpath=//button[contains(normalize-space(),'External Apply')]
-${VIEW_POST_BUTTON}         xpath=//button[contains(translate(normalize-space(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'view post')]
+${VIEW_POST_BUTTON}         xpath=(//button[contains(translate(normalize-space(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'view post')])[last()]
 ${FIRST_LINKEDIN_JOB_CARD}  xpath=(//div[@role='button' and @tabindex='0'])[1]
 
 *** Keywords ***

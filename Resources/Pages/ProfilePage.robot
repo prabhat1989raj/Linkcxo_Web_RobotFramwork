@@ -284,9 +284,8 @@ Select Experience Start Date
 
 Select Experience Date Value
     [Arguments]    ${dropdown}    ${value}
-    Click Element    ${dropdown}
-    Wait Until Element Is Visible    xpath=(//*[@role='option' and normalize-space()='${value}'])[1]    timeout=10s
-    Click Element    xpath=(//*[@role='option' and normalize-space()='${value}'])[1]
+    Wait Until Element Is Visible    ${dropdown}    timeout=30s
+    Select From List By Label    ${dropdown}    ${value}
 
 Select Currently Working Here
     Select Checkbox    ${EXP_CURRENTLY_WORKING}
