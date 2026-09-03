@@ -311,7 +311,7 @@ ${EXP_SAVE_BTN}                 xpath=//button[@type='submit' and normalize-spac
 ${AWARDS_CERTIFICATION_TAB}     xpath=//button[normalize-space()='Awards & Certification']
 ${AWARDS_HEADING}               xpath=(//*[normalize-space()='Awards & Certification'])[last()]
 ${ADD_AWARD_BTN}                xpath=(//*[normalize-space()='Awards & Certification'])[last()]/following::button[@title='Add'][1]
-${ADD_AWARD_MODAL_TITLE}        xpath=//*[normalize-space()='Add Awards & Certification']
+${ADD_AWARD_MODAL_TITLE}        xpath=//*[self::h1 or self::h2 or self::h3 or self::h4][normalize-space()='Add Awards & Certification']
 ${AWARD_TITLE_INPUT}            xpath=//label[normalize-space()='Award / Certification Title']/following::input[1]
 ${AWARD_CERTIFIED_BY_INPUT}     xpath=//label[normalize-space()='Issued By / Organization']/following::input[1]
 ${AWARD_ISSUED_DATE_INPUT}      xpath=//label[normalize-space()='Issued Date']/following::input[1]

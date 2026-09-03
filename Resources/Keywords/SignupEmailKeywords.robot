@@ -15,8 +15,8 @@ ${FIRST_NAME}                  xpath=//input[@id='firstName']
 ${LAST_NAME}                   xpath=//input[@id='lastName']
 ${COMPANY_NAME}                xpath=//input[@id='companyName']
 
-${DESIGNATION_DROPDOWN}        xpath=//input[@placeholder='Current Designation']
-${MARKETING_HEAD}              xpath=//div[@role='option']
+${DESIGNATION_DROPDOWN}        xpath=(//input[contains(translate(@placeholder, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'designation')] | //input[contains(translate(@name, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'designation')] | //label[contains(translate(normalize-space(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'designation')]/following::*[self::input or @role='combobox'][1])[1]
+${DESIGNATION_OPTION}          xpath=//div[@role='option' and normalize-space()='${SIGNUP_DESIGNATION}']
 
 ${YEARS_OF_EXPERIENCE}         xpath=//input[@id='yearsOfExperience']
 ${PHONE_NUMBER}                xpath=//input[@id='phoneNo']
@@ -35,34 +35,34 @@ Validate Signup Email
 
 Signup Using Email
 
-    Wait Until Page Contains Element    xpath=//body    30s
+    Wait Until Page Contains Element    xpath=//body    20s
 
-    Wait Until Element Is Visible    ${LOGIN_BUTTON}    30s
+    Wait Until Element Is Visible    ${LOGIN_BUTTON}    20s
     Scroll Element Into View         ${LOGIN_BUTTON}
     Click Element                    ${LOGIN_BUTTON}
 
-    Wait Until Element Is Visible    ${EMAIL_INPUT}    30s
+    Wait Until Element Is Visible    ${EMAIL_INPUT}    20s
     Validate Signup Email             ${SIGNUP_EMAIL}
     Input Text                       ${EMAIL_INPUT}    ${SIGNUP_EMAIL}
 
-    Wait Until Element Is Visible    ${CONTINUE_BUTTON}    20s
+    Wait Until Element Is Visible    ${CONTINUE_BUTTON}    10s
     Click Element                    ${CONTINUE_BUTTON}
 
     Submit OTP
 
-    Wait Until Element Is Visible    ${FIRST_NAME}    30s
-    Input Text                       ${FIRST_NAME}    Sajeet
+    Wait Until Element Is Visible    ${FIRST_NAME}    10s
+    Input Text                       ${FIRST_NAME}    Vikash
 
-    Wait Until Element Is Visible    ${LAST_NAME}    20s
+    Wait Until Element Is Visible    ${LAST_NAME}    10s
     Input Text                       ${LAST_NAME}    Kumar
 
-    Wait Until Element Is Visible    ${COMPANY_NAME}    20s
+    Wait Until Element Is Visible    ${COMPANY_NAME}    10s
     Input Text                       ${COMPANY_NAME}    Alfatech Private Limited
 
     Wait Until Element Is Visible    ${DESIGNATION_DROPDOWN}    20s
     Click Element                    ${DESIGNATION_DROPDOWN}
 
-    Select First Visible Designation Option
+    Select Signup Designation
 
     Wait Until Element Is Visible    ${YEARS_OF_EXPERIENCE}    20s
     Input Text                       ${YEARS_OF_EXPERIENCE}    14
@@ -78,14 +78,14 @@ Signup Using Email
     Wait Until Element Is Visible    ${FINAL_CONTINUE_BUTTON}    20s
     Click Element                    ${FINAL_CONTINUE_BUTTON}
 
-    Sleep    15s
+    Sleep    10s
 
     Capture Page Screenshot
 
 
 Submit OTP
 
-    Wait Until Element Is Visible    ${OTP_INPUTS}    30s
+    Wait Until Element Is Visible    ${OTP_INPUTS}    20s
 
     @{otp}=    Get WebElements    ${OTP_INPUTS}
 
@@ -96,19 +96,11 @@ Submit OTP
     Input Text    ${otp}[4]    4
     Input Text    ${otp}[5]    4
 
-    Sleep   10s
+    Sleep   5s
 
-    Wait Until Element Is Visible    ${OTP_CONTINUE_BUTTON}    20s
+    Wait Until Element Is Visible    ${OTP_CONTINUE_BUTTON}    10s
     Click Element                    ${OTP_CONTINUE_BUTTON}
 
-Select First Visible Designation Option
-    Wait Until Page Contains Element    ${MARKETING_HEAD}    20s
-    @{options}=    Get WebElements    ${MARKETING_HEAD}
-    FOR    ${option}    IN    @{options}
-        ${visible}=    Run Keyword And Return Status    Element Should Be Visible    ${option}
-        IF    ${visible}
-            Click Element    ${option}
-            RETURN
-        END
-    END
-    Fail    No visible designation option was available.
+Select Signup Designation
+    Wait Until Element Is Visible    ${DESIGNATION_OPTION}    10s
+    Click Element                    ${DESIGNATION_OPTION}

@@ -3,7 +3,7 @@ Documentation       Companies-module test suite for discovery, follow, and unfol
 Resource            ../Resources/Pages/LoginPage.robot
 Resource            ../Resources/Pages/CompanyPage.robot
 
-Suite Setup         Run Keywords    Open Application    AND    Login To Application    email=kprabhat956@gmail.com
+Suite Setup         Run Keywords    Open Application    AND    Login To Application    email=${SIGNUP_EMAIL}
 Suite Teardown      Close Application
 
 *** Test Cases ***

@@ -58,6 +58,24 @@ Login With Email
     Wait Until Element Is Visible    ${USER_PROFILE_LINK}    timeout=15s
 
 
+Update Profile Successfully
+    [Documentation]    Verifies a user can update all profile sections.
+    [Tags]    profile    content
+
+    Login To Application    email=${PROFILE_UPDATE_LOGIN_EMAIL}
+
+    Click User Profile Icon
+    Update Profile Image Banner And Summary Details
+    Update User About Description
+    Add User Education Details
+    Add User Experience Details
+    Add User Award And Certification
+    Add User Publication
+    Add User English Language
+
+    Capture Page Screenshot    ${OUTPUT DIR}/UpdateProfile.png
+
+
 Create All Content With One Signup Login
     [Documentation]    Logs in once with the email-signup account, then creates every post-related content type in the same browser session.
     [Tags]    post    query    poll    article    survey    content
@@ -84,24 +102,6 @@ Create All Content With One Signup Login
 
     Create New Survey
     Capture Page Screenshot    ${OUTPUT DIR}/CreateSurvey.png
-
-
-Update Profile Successfully
-    [Documentation]    Verifies a user can update all profile sections.
-    [Tags]    profile    content
-
-    Login To Application    email=${PROFILE_UPDATE_LOGIN_EMAIL}
-
-    Click User Profile Icon
-    Update Profile Image Banner And Summary Details
-    Update User About Description
-    Add User Education Details
-    Add User Experience Details
-    Add User Award And Certification
-    Add User Publication
-    Add User English Language
-
-    Capture Page Screenshot    ${OUTPUT DIR}/UpdateProfile.png
 
 
 Create Public And Private Event Successfully
@@ -153,10 +153,10 @@ Bookmark And Apply To Recommended Job
     ${jobs_window}=    Open External Job Application
     Return To Jobs Tab    ${jobs_window}
 
-    Open All Jobs My Jobs And LinkedIn Job Post
+    Open All Jobs My Jobs And Social Posts
     Bookmark Recommended Job
 
-    ${jobs_window}=    Open LinkedIn Job Post
+    ${jobs_window}=    Open Social Post
     Return To Jobs Tab    ${jobs_window}
 
 

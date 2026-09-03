@@ -1,17 +1,19 @@
 *** Variables ***
 
+# Signup test data
+${SIGNUP_EMAIL}                 vikash123@gmail.com
+${SIGNUP_EMAIL_MOBILE}           7676767645
+${SIGNUP_MOBILE}                 9888886544
+${SIGNUP_MOBILE_EMAIL}           rohit123@gmail.com
+${SIGNUP_DESIGNATION}            Business Head
+
 # ==========================================
 # Login Test Data
 # ==========================================
 
-${EMAIL}                         kprabhat9566@gmail.com
+# Use the email-signup account for all post-signup actions.
+${EMAIL}                         ${SIGNUP_EMAIL}
 ${OTP}                           444444
-
-# Signup test data
-${SIGNUP_EMAIL}                  kprabhat9566@gmail.com
-${SIGNUP_EMAIL_MOBILE}           8484666225
-${SIGNUP_MOBILE}                 9999966225
-${SIGNUP_MOBILE_EMAIL}           kprabhat9566@gmail.com
 
 # ==========================================
 # Post Test Data
